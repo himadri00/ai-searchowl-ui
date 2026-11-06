@@ -1,0 +1,310 @@
+{
+  "heroLead": "Sieh, was die KI sagt",
+  "heroBrand": "über {brand}",
+  "askPlaceholder": "Frag etwas, @ für eine Kennzahl, oder / für eine Fähigkeit...",
+  "insertMetric": "Kennzahl einfügen",
+  "askSubmit": "Fragen",
+  "mentionHint": "Wähl eine Kennzahl für deine Frage.",
+  "sampleLabel": "Beispielantwort",
+  "sampleNote": "Diese Antwort nutzt die Zahlen auf diesem Bildschirm. Kein Live-Modell ist verbunden.",
+  "searchBoard": {
+    "title": "KI-Suche im Überblick",
+    "subtitle": "So schneidet deine Marke auf KI-Suchplattformen ab",
+    "sampleNote": "Diese Zahlen sind eine Beispielvorschau. Sie kommen noch nicht aus dem Live-Tracking. Die Bereiche unter diesem Board nutzen weiter die Zahlen dieses Workspace.",
+    "notRanked": "Nicht platziert",
+    "noScore": "Noch kein Wert",
+    "noPrompts": "Noch keine aktiven Prompts. Öffne Prompts, füge die Fragen hinzu, die du verfolgen willst, und starte sie.",
+    "noPlatforms": "Keine KI-Antworten in diesem Zeitraum. Erweitere den Zeitraum oder starte Prompts für diese Marke.",
+    "noShare": "Noch kein Share of Voice. Starte Prompts, damit Antworten diese Marke und die anderen nennen.",
+    "visibility": "KI-Sichtbarkeit",
+    "prompts": "Verfolgte Prompts",
+    "mentions": "Markennennungen",
+    "citations": "Zitate",
+    "deltaPp": "+{value} Pp.",
+    "trendTitle": "Trend der KI-Sichtbarkeit",
+    "trendLabel": "KI-Sichtbarkeit von {start} bis {end}",
+    "platformTitle": "Leistung nach KI-Plattform",
+    "shareTitle": "Share of Voice der Wettbewerber",
+    "yourBrand": "Deine Marke",
+    "competitor": "Wettbewerber {name}",
+    "others": "Weitere",
+    "shareAllNote": "Alle Wettbewerber, die Sie in diesem Zeitraum verfolgen, mit ihrem Anteil. 0 % bedeutet, dass diese Marke in den Antworten nicht genannt wurde.",
+    "shareCount": "{count} Wettbewerber",
+    "promptsTitle": "Prompts mit der besten Leistung",
+    "viewAll": "Alle anzeigen",
+    "colPrompt": "Prompt",
+    "colRank": "Dein Rang",
+    "colVisibility": "Sichtbarkeit",
+    "colCitations": "Zitate",
+    "prompt": {
+      "p1": "Beste Tools für Projektmanagement?",
+      "p2": "Alternativen zu Notion?",
+      "p3": "Beste KI-Schreibtools für Teams?"
+    }
+  },
+  "suggest": {
+    "explain": "Erklär meine Sichtbarkeit in einfachen Worten",
+    "changed": "Was hat sich in diesem Zeitraum geändert, und warum?",
+    "compare": "Wie stehen wir im Vergleich zu Wettbewerbern?"
+  },
+  "answer": {
+    "explain": "{brand} taucht in {visibility} der beobachteten KI-Antworten auf. Der Share of Voice ist {sov}. Die Stimmung ist {sentiment}. Die durchschnittliche Position ist {position}. Deine Seite ist in {source} der Antworten die Quelle, und du gewinnst {winRate} der Vergleiche.",
+    "changed": "Über die 6 Beispieltage liegt die Sichtbarkeit bei {visibility}. Öffne das Diagramm für Anstieg, Dip und Erholung. Der Share of Voice bleibt bei {sov}.",
+    "compare": "{brand} führt dieses Set auf Position {position}, mit {visibility} Sichtbarkeit und {sov} Share of Voice. Die anderen Marken liegen in dieser Stichprobe bei oder nahe null.",
+    "generic": "Beispiel für {brand}: Sichtbarkeit {visibility}, Share of Voice {sov}, Stimmung {sentiment}, Position {position}, als Quelle genutzt {source}, Gewinnrate {winRate}."
+  },
+  "metric": {
+    "visibility": "Sichtbarkeit",
+    "sov": "SoV",
+    "sentiment": "Stimmung",
+    "position": "Position",
+    "source": "Als Quelle genutzt",
+    "winRate": "Gewinnrate"
+  },
+  "metricInfo": "Zu {metric}",
+  "metricHelp": {
+    "visibility": "Anteil der beobachteten KI-Antworten, die diese Marke nennen.",
+    "sov": "Nennungen dieser Marke geteilt durch alle Markennennungen.",
+    "sentiment": "Durchschnittlicher Ton, wenn die KI über die Marke spricht. 50 ist neutral.",
+    "position": "Durchschnittlicher Listenplatz. 1 ist der erste Platz.",
+    "source": "Anteil der Antworten, die die eigene Website zitieren.",
+    "winRate": "Anteil der Antworten, in denen diese Marke vor den anderen liegt."
+  },
+  "matrixTitle": "Leistungsmatrix",
+  "switchAxis": "Achsen tauschen",
+  "axisPair": "{x} vs {y}",
+  "xAxis": "X-Achse · Spalten",
+  "yAxis": "Y-Achse · Zeilen",
+  "collapse": "Vollbild verlassen",
+  "expand": "Vollbild",
+  "more": "Weitere Aktionen",
+  "exportCsv": "CSV exportieren",
+  "saveImage": "Als Bild speichern",
+  "copyTable": "Kopieren",
+  "copiedTitle": "Matrix kopiert",
+  "copiedBody": "Füg sie in eine Tabelle ein. Das Bild wartet, bis die Ansicht verbunden ist.",
+  "imageSoon": "Die Matrix als Bild braucht die Live-Ansicht. Kopier die Tabelle oder lad CSV herunter.",
+  "unnamedAxis": "Ein Tag oder Thema in dieser Matrix hat keinen gespeicherten Namen, deshalb steht hier die Kennung. Öffnen Sie die Seite Prompts, geben Sie einen Namen ein und laden Sie diese Seite neu.",
+  "sameAxis": "Spalten und Zeilen sind beide {name}. Wähl eine andere Zeile oder Spalte.",
+  "dimension": {
+    "models": "KI-Modelle",
+    "brands": "Marken",
+    "topics": "Themen",
+    "tags": "Tags",
+    "countries": "Länder"
+  },
+  "models": {
+    "chatgpt": "ChatGPT",
+    "perplexity": "Perplexity",
+    "gemini": "Gemini",
+    "aioverview": "KI-Übersichten",
+    "claude": "Claude"
+  },
+  "countries": {
+    "us": "Vereinigte Staaten",
+    "uk": "Vereinigtes Königreich",
+    "de": "Deutschland",
+    "fr": "Frankreich",
+    "in": "Indien"
+  },
+  "tags": {
+    "branded": "Marke",
+    "nonBranded": "Ohne Marke",
+    "informational": "Information",
+    "commercial": "Kommerziell",
+    "transactional": "Transaktion"
+  },
+  "topics": {
+    "video": "sichtbarkeit in der ki-suche",
+    "planning": "inhaltsoptimierung",
+    "scheduling": "technisches seo"
+  },
+  "topDomains": "Top-Domains",
+  "domainTab": {
+    "top": "Top",
+    "new": "Neu",
+    "trending": "Trend",
+    "losing": "Rückläufig"
+  },
+  "domainTabEmpty": "Nichts in dieser Stichprobe ist {tab}. Wähl Top, um alle Domains zu sehen.",
+  "you": "Du",
+  "domainTypes": "Domain-Typen",
+  "totalRetrievals": "Abrufe gesamt: {count}",
+  "domainType": {
+    "corporate": "Unternehmen",
+    "ugc": "UGC",
+    "editorial": "Redaktion",
+    "other": "Sonstiges",
+    "you": "Du",
+    "reference": "Referenz",
+    "institutional": "Institution"
+  },
+  "visibilityTitle": "Sichtbarkeit",
+  "period": {
+    "d": "T",
+    "w": "W",
+    "m": "M"
+  },
+  "rangeCaption": "Daten für {count} Tage",
+  "chartEmpty": "Dieses Diagramm braucht mindestens zwei Tage mit Antworten. Wählen Sie einen längeren Zeitraum, oder starten Sie Prompts für diese Domain.",
+  "topBrands": "Top {count} Marken",
+  "colBrand": "Marke",
+  "impactTitle": "Eigene Quelle",
+  "chartHover": "Werte für den gewählten Tag",
+  "planTitle": "Dein Plan",
+  "goToActions": "Zu den Aktionen",
+  "nothingOpen": "Nichts offen",
+  "claimsClear": "Keine falschen Behauptungen sind offen. Neue erscheinen hier, sobald das Tracking sie findet.",
+  "moreTasks": "{count} weitere Korrekturen liegen in Aktionen.",
+  "plan": {
+    "read": {
+      "title": "Sorg dafür, dass die KI deine Seite liest",
+      "canonical": "Setz ein Canonical-Tag auf die Startseite",
+      "llms": "Veröffentlich eine llms.txt"
+    },
+    "pages": {
+      "title": "Verbessere deine eigenen Seiten",
+      "comparison": "Veröffentlich eine Seite, die KI-SEO-Plattformen vergleicht",
+      "checklist": "Mach aus der GEO-Checkliste einen vollständigen Leitfaden"
+    },
+    "mentions": {
+      "title": "Werde anderswo erwähnt",
+      "youtube": "Hol dir eine Erwähnung in einem KI-SEO-Video",
+      "reddit": "Geh in die Threads, die Wettbewerber schon zitieren"
+    },
+    "claims": {
+      "title": "Korrigiere falsche Aussagen über deine Marke"
+    }
+  },
+  "planTag": {
+    "yourPage": "Deine Seite",
+    "technical": "Technischer SEO-Fix",
+    "agentReady": "Bereit für KI-Agenten",
+    "article": "Artikel",
+    "brief": "Content-Brief",
+    "listicle": "Liste",
+    "optimization": "Optimierung",
+    "youtube": "YouTube",
+    "publish": "Veröffentlichen",
+    "reddit": "Reddit",
+    "join": "Mitreden"
+  },
+  "chatsTitle": "Letzte Chats",
+  "allBrands": "Alle Marken",
+  "noBrand": "Keine Marke genannt",
+  "allFeatures": "Alle Funktionen",
+  "allSources": "Alle Quellen",
+  "sourcesCount": "Quellen · {count}",
+  "searchSources": "Quellen suchen...",
+  "searchChats": "Chats suchen",
+  "columns": "Spalten",
+  "resetColumns": "Zurücksetzen",
+  "xlsxNote": "XLSX wartet auf den Live-Workspace. CSV und JSON laden diese Stichprobe jetzt.",
+  "chatsEmpty": "Keine Chats passen zu diesen Filtern. Nimm eine Marke, Funktion, Quelle oder die Suche zurück.",
+  "pageStatus": "{from} bis {to} von {total} Chats",
+  "createdToday": "heute",
+  "createdMissing": "Für diese Antwort ist kein Datum gespeichert. Aktualisiere die Seite, wenn der Lauf fertig ist.",
+  "feature": {
+    "shopping": "Shopping",
+    "web": "Websuche",
+    "links": "Links",
+    "none": "Keine Funktionen"
+  },
+  "match": {
+    "or": "Oder",
+    "and": "Und"
+  },
+  "column": {
+    "chat": "Chat",
+    "mentions": "Erwähnungen",
+    "sources": "Quellen",
+    "links": "Links",
+    "features": "Funktionen",
+    "citations": "Zitate",
+    "position": "Position",
+    "created": "Erstellt"
+  },
+  "viewPrompt": "Prompt anzeigen",
+  "hidePrompt": "Prompt ausblenden",
+  "details": "Details",
+  "sourcesHeading": "Quellen",
+  "detailNote": "Diese Seiten sind Beispielzitate. Der echte Link kommt, wenn das Tracking verbunden ist.",
+  "previous": "Zurück",
+  "next": "Weiter",
+  "sourceTitles": {
+    "youtube_com": "YouTube-Videos zu KI-SEO-Tools",
+    "nuwtonic_com": "AiSearchOwl, KI-Sichtbarkeit und SEO",
+    "reddit_com": "Reddit-Threads, die Plattformen vergleichen",
+    "g2_com": "G2-Einträge zu Schreibsoftware",
+    "capterra_com": "Capterra-Übersichten",
+    "linkedin_com": "LinkedIn-Beiträge zur KI-Suche",
+    "medium_com": "Medium-Guides zur Antwort-Optimierung",
+    "searchenginejournal_com": "Search Engine Journal zu KI-Übersichten",
+    "healthline_com": "Healthline-Artikel",
+    "webmd_com": "WebMD-Referenzseiten"
+  },
+  "chat": {
+    "c1": {
+      "title": "Welche Plattformen verfolgen Sichtbarkeit in der KI-Suche?",
+      "snippet": "Das richtige Setup beobachtet Marken-Prompts und zeigt die zitierten Quellen.",
+      "prompt": "Welche Plattformen eignen sich, um KI-Sichtbarkeit für ein SEO-Team zu verfolgen?",
+      "answer": "Verfolge ein festes Prompt-Set über ChatGPT, Perplexity, Gemini und KI-Übersichten. AiSearchOwl verbindet in diesem Beispiel Sichtbarkeit mit den zitierten Seiten."
+    },
+    "c2": {
+      "title": "Finde eine Plattform, die Trends und Inhalte automatisiert.",
+      "snippet": "Verbinde Recherche mit einer Veröffentlichungs-Warteschlange.",
+      "prompt": "Hilf mir, eine Plattform zu finden, die Trendanalyse und Inhalte automatisiert.",
+      "answer": "Kombiniere ein Recherche-Tool mit einer Inhalts-Warteschlange. Diese Beispielantwort nennt keinen Sieger, der Prompt ist ohne Marke."
+    },
+    "c3": {
+      "title": "Welche Software schafft Inhalte für mehr als eine Website?",
+      "snippet": "Halt eine Prompt-Liste pro Marke und einen gemeinsamen Bericht.",
+      "prompt": "Welche Software schafft Massen-Inhalte für mehrere Kundenseiten am besten?",
+      "answer": "Ein Agentur-Workspace sollte Marken wechseln, ohne Prompts zu mischen. AiSearchOwl ist in diesem Beispiel dafür gedacht."
+    },
+    "c4": {
+      "title": "Ich suche ein Tool, das meinen Content-Ablauf vereinfacht.",
+      "snippet": "Zeit geht verloren, wenn du denselben Prompt wiederholst und prüfst, ob die KI dich zitiert.",
+      "prompt": "Ich suche ein Tool, das meinen Content-Ablauf vereinfacht.",
+      "answer": "Starte bei den Prompts, die du verlierst, und korrigiere die Seiten, die die KI zitieren sollte. Der Plan auf dieser Übersicht listet diese Fixes."
+    },
+    "c5": {
+      "title": "Wie automatisiere ich meinen Content-Prozess?",
+      "snippet": "Automatisiere die wiederholbaren Schritte und prüf die Sichtbarkeit davor.",
+      "prompt": "Wie kann ich meinen Content-Prozess sinnvoll automatisieren?",
+      "answer": "Automatisiere Briefings und Prüfungen, und lass Behauptungen von einem Menschen gegenlesen."
+    },
+    "c6": {
+      "title": "Welche Funktionen brauche ich in einer KI-Sichtbarkeitsplattform?",
+      "snippet": "Für eine Agentur: eine Marke nach der anderen, mit gemeinsamen Kennzahlen.",
+      "prompt": "Welche Funktionen sollte ich in einer Plattform für KI-Sichtbarkeit suchen?",
+      "answer": "Prompt-Tracking, Quelldomains, Stimmung und ein Plan mit Fixes. Die Modell-Punkte zeigen, woher die Antwort kommt."
+    },
+    "c7": {
+      "title": "Erklär, wie KI-Suche eine Marke über mehrere Assistenten hält.",
+      "snippet": "Derselbe Prompt kann je nach Assistent andere Domains zitieren.",
+      "prompt": "Erklär, wie KI-Suche eine Marke über mehrere Assistenten abstimmt.",
+      "answer": "Sie stimmt sich nicht von allein ab. Miss jeden Assistenten und korrigiere die Canonical-Seite plus die Zitate, denen sie schon vertrauen. AiSearchOwl steht in diesem Beispiel vorn."
+    },
+    "c8": {
+      "title": "Wie tauchen Gesundheitsmarken in Antworten zu Symptomen auf?",
+      "snippet": "Redaktionelle Domains holen die meisten Zitate.",
+      "prompt": "Wie tauchen Gesundheitsmarken in KI-Antworten zu Symptomen auf?",
+      "answer": "Gesundheitsantworten stützen sich auf redaktionelle Seiten. Eine Marke gewinnt, wenn die eigene Seite klar genug ist, um daneben zitiert zu werden."
+    },
+    "c9": {
+      "title": "Welche Kennzahlen zählen, wenn eine B2B-Marke verglichen wird?",
+      "snippet": "Achte auf Sichtbarkeit, Share of Voice und ob deine Domain die Quelle ist.",
+      "prompt": "Welche Kennzahlen zählen, wenn eine B2B-Marke in KI-Antworten verglichen wird?",
+      "answer": "Sichtbarkeit heißt, du wurdest genannt. Share of Voice heißt, du hast die Namen dominiert. Als Quelle genutzt heißt, die Antwort hat deiner Seite vertraut."
+    },
+    "c10": {
+      "title": "Wie optimiere ich Seiten, damit Assistenten sie zitieren?",
+      "snippet": "Mach eine Seite zur klarsten Antwort und hol dir Erwähnungen.",
+      "prompt": "Wie optimiere ich Seiten, damit KI-Assistenten sie zitieren?",
+      "answer": "Gib der Seite eine klare Frage, eine Canonical-URL und Erwähnungen auf YouTube, Reddit und Bewertungsseiten."
+    }
+  },
+  "chatLoading": "Vollständige Antwort wird geladen…",
+  "chatLoadFailed": "Die vollständige Antwort konnte nicht geladen werden. Du siehst die Kurzfassung. Schließe den Chat und öffne ihn erneut."
+}

@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #1A1A1A;
+  --muted: #6F6A66;
+  --line: #F3E6DC;
+  --sidebar: #FFFFFF;
+  --green: #E85D0C;
+  --red: #1A1A1A;
+  --primary: #E85D0C;
+  --button: #E85D0C;
+  --amber: #FFE4CC;
+  --orange: #E85D0C;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: var(--ink);
+  background: #FFFFFF;
+  font-feature-settings: 'cv11', 'ss01';
+  overflow-x: clip;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+/* Native checks follow the orange accent. The browser default is blue. */
+input[type='checkbox'],
+input[type='radio'] {
+  accent-color: var(--primary);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #E4D5C8 transparent;
+}
+
+::selection {
+  background: #FFE4CC;
+}
+
+.app-main {
+  background: #FFFFFF;
+}
+
+/* AiSearchOwl home, motion (disabled when the user prefers reduced motion) */
+@keyframes owl-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+@keyframes owl-blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.08); } }
+@keyframes float-y { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes scan-x { 0% { left: -10%; } 100% { left: 105%; } }
+@keyframes pop-in { from { opacity: 0; transform: translateY(6px) scale(0.97); } to { opacity: 1; transform: none; } }
+@keyframes rise-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes marquee-x { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+@keyframes caret-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes answer-in { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+
+.owl-bob { animation: owl-bob 3.2s ease-in-out infinite; }
+.owl-eyes { animation: owl-blink 4.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.float-card { animation: float-y 5s ease-in-out infinite; }
+.float-card-delayed { animation: float-y 6s ease-in-out 1.2s infinite; }
+.scan-line { animation: scan-x 4.5s linear infinite; }
+.pop-in { animation: pop-in 0.45s ease both; }
+.rise-in { animation: rise-in 0.7s ease both; }
+.pulse-dot { animation: pulse-dot 1.8s ease-in-out infinite; }
+.typing-caret { animation: caret-blink 0.9s step-end infinite; }
+.answer-line { animation: answer-in 0.5s ease both; }
+.answer-line-2 { animation: answer-in 0.5s ease 0.55s both; }
+.engine-pill { animation: pop-in 0.5s ease both; }
+.marquee-track { animation: marquee-x 26s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
+@keyframes owl-float {
+  0%, 100% { transform: translateY(0) rotate(-1.2deg); }
+  50% { transform: translateY(-18px) rotate(1.4deg); }
+}
+@keyframes owl-shadow {
+  0%, 100% { transform: scaleX(1); opacity: 0.45; }
+  50% { transform: scaleX(0.72); opacity: 0.2; }
+}
+@keyframes wing-left {
+  0%, 100% { transform: rotate(7deg); }
+  50% { transform: rotate(-18deg); }
+}
+@keyframes wing-right {
+  0%, 100% { transform: rotate(-7deg); }
+  50% { transform: rotate(18deg); }
+}
+@keyframes ring-dash {
+  to { stroke-dashoffset: -640; }
+}
+@keyframes orbit-travel {
+  from { offset-distance: 0%; }
+  to { offset-distance: 100%; }
+}
+@keyframes chip-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.7); }
+  50% { opacity: 1; transform: scale(1); }
+}
+@keyframes chart-draw {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes area-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes bar-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.owl-float { animation: owl-float 4.8s ease-in-out infinite; }
+.owl-shadow { animation: owl-shadow 4.8s ease-in-out infinite; transform-origin: center; }
+.owl-wing-l {
+  transform-box: fill-box;
+  transform-origin: 96% 48%;
+  animation: wing-left 2.5s ease-in-out infinite;
+}
+.owl-wing-r {
+  transform-box: fill-box;
+  transform-origin: 4% 48%;
+  animation: wing-right 2.5s ease-in-out infinite;
+}
+.owl-ring { animation: ring-dash 9s linear infinite; }
+.owl-ring-slow { animation: ring-dash 14s linear infinite reverse; }
+.owl-orbit {
+  offset-path: path('M 580 115 A 260 88 0 1 1 60 115 A 260 88 0 1 1 580 115');
+  offset-rotate: 0deg;
+  animation: orbit-travel 18s linear infinite;
+}
+.owl-chip { animation: chip-float 5.5s ease-in-out infinite; }
+.owl-spark { animation: twinkle 2.8s ease-in-out infinite; }
+.chart-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: chart-draw 1.8s ease forwards;
+}
+.chart-area { animation: area-in 1.2s ease 0.4s both; }
+.bar-grow { transform-origin: left center; animation: bar-grow 1s ease both; }
+
+/* Hides only Clerk's title on the first auth step. The form itself stays visible. */
+.cl-headerTitle.auth-hide-clerk-header,
+.cl-headerSubtitle.auth-hide-clerk-header {
+  display: none;
+}
+
+/* Calm premium cards: a soft lift on hover, nothing loud */
+.premium-card { transition: transform 220ms ease, box-shadow 220ms ease; }
+.premium-card:hover { transform: translateY(-3px); box-shadow: 0 22px 45px rgba(23, 21, 18, 0.08); }
+
+@media (prefers-reduced-motion: reduce) {
+  .owl-bob, .owl-eyes, .float-card, .float-card-delayed, .scan-line, .pop-in,
+  .rise-in, .pulse-dot, .typing-caret, .answer-line, .answer-line-2,
+  .engine-pill, .marquee-track, .owl-float, .owl-shadow, .owl-wing-l, .owl-wing-r,
+  .owl-ring, .owl-ring-slow, .owl-orbit, .owl-chip, .owl-spark, .chart-draw,
+  .chart-area, .bar-grow { animation: none !important; }
+  .chart-draw { stroke-dashoffset: 0; }
+  .premium-card { transition: none; }
+  .premium-card:hover { transform: none; }
+}

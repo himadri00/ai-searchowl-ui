@@ -1,0 +1,310 @@
+{
+  "heroLead": "Scopri cosa dice l'IA",
+  "heroBrand": "su {brand}",
+  "askPlaceholder": "Chiedi qualcosa, @ per una metrica, o / per una competenza...",
+  "insertMetric": "Inserisci una metrica",
+  "askSubmit": "Chiedi",
+  "mentionHint": "Scegli una metrica da inserire nella domanda.",
+  "sampleLabel": "Risposta di esempio",
+  "sampleNote": "Questa risposta usa i numeri di questa schermata. Nessun modello live è collegato.",
+  "searchBoard": {
+    "title": "Panoramica della ricerca IA",
+    "subtitle": "I risultati del tuo brand sulle piattaforme di ricerca IA",
+    "sampleNote": "Queste cifre sono un'anteprima di esempio. Non arrivano ancora dal monitoraggio live. Le sezioni sotto questa scheda usano ancora i numeri di questo spazio.",
+    "notRanked": "Non in classifica",
+    "noScore": "Ancora nessun punteggio",
+    "noPrompts": "Nessun prompt attivo. Apri Prompt, aggiungi le domande da monitorare e avviale.",
+    "noPlatforms": "Nessuna risposta IA in questo periodo. Allarga il periodo, oppure avvia i prompt per questo brand.",
+    "noShare": "Ancora nessuna share of voice. Avvia i prompt così le risposte possono citare questo brand e gli altri.",
+    "visibility": "Visibilità IA",
+    "prompts": "Prompt monitorati",
+    "mentions": "Menzioni del brand",
+    "citations": "Citazioni",
+    "deltaPp": "+{value} pp",
+    "trendTitle": "Andamento della visibilità IA",
+    "trendLabel": "Visibilità IA dal {start} al {end}",
+    "platformTitle": "Prestazioni per piattaforma IA",
+    "shareTitle": "Share of voice dei concorrenti",
+    "yourBrand": "Il tuo brand",
+    "competitor": "Concorrente {name}",
+    "others": "Altri",
+    "shareAllNote": "Tutti i concorrenti seguiti in questo periodo, con la loro quota. 0% significa che quel marchio non è stato citato nelle risposte.",
+    "shareCount": "{count} concorrenti",
+    "promptsTitle": "Prompt con le migliori prestazioni",
+    "viewAll": "Vedi tutti",
+    "colPrompt": "Prompt",
+    "colRank": "La tua posizione",
+    "colVisibility": "Visibilità",
+    "colCitations": "Citazioni",
+    "prompt": {
+      "p1": "Migliori strumenti di project management?",
+      "p2": "Alternative a Notion?",
+      "p3": "Migliori strumenti di scrittura IA per i team?"
+    }
+  },
+  "suggest": {
+    "explain": "Spiega la mia visibilità in modo semplice",
+    "changed": "Cosa è cambiato in questo periodo, e perché?",
+    "compare": "Come ci confrontiamo con i concorrenti?"
+  },
+  "answer": {
+    "explain": "{brand} compare nel {visibility} delle risposte IA tracciate. La share of voice è {sov}. Il sentiment è {sentiment}. La posizione media è {position}. Il tuo sito è la fonte nel {source} delle risposte e vinci il {winRate} dei confronti.",
+    "changed": "Nei 6 giorni di esempio la visibilità si assesta a {visibility}. Apri il grafico per vedere salita, calo e recupero. La share of voice resta a {sov}.",
+    "compare": "{brand} guida questo insieme in posizione {position}, con visibilità {visibility} e share of voice {sov}. Gli altri brand tracciati sono vicini a zero in questo esempio.",
+    "generic": "Lettura di esempio per {brand}: visibilità {visibility}, share of voice {sov}, sentiment {sentiment}, posizione {position}, usato come fonte {source}, tasso di vittoria {winRate}."
+  },
+  "metric": {
+    "visibility": "Visibilità",
+    "sov": "SoV",
+    "sentiment": "Sentiment",
+    "position": "Posizione",
+    "source": "Usato come fonte",
+    "winRate": "Tasso di vittoria"
+  },
+  "metricInfo": "Info su {metric}",
+  "metricHelp": {
+    "visibility": "Quota di risposte IA tracciate che citano questo brand.",
+    "sov": "Menzioni di questo brand divise per tutte le menzioni di brand.",
+    "sentiment": "Tono medio quando l'IA parla del brand. 50 è neutro.",
+    "position": "Posto medio in elenco. 1 è il primo.",
+    "source": "Quota di risposte che citano il sito del brand.",
+    "winRate": "Quota di risposte in cui questo brand precede gli altri che segui."
+  },
+  "matrixTitle": "Matrice prestazioni",
+  "switchAxis": "Scambia assi",
+  "axisPair": "{x} vs {y}",
+  "xAxis": "Asse X · Colonne",
+  "yAxis": "Asse Y · Righe",
+  "collapse": "Esci da schermo intero",
+  "expand": "Schermo intero",
+  "more": "Altre azioni",
+  "exportCsv": "Esporta CSV",
+  "saveImage": "Salva come immagine",
+  "copyTable": "Copia",
+  "copiedTitle": "Matrice copiata",
+  "copiedBody": "Incollala in un foglio. L'immagine aspetta la vista collegata.",
+  "imageSoon": "Salvare la matrice come immagine richiede la vista live. Copia la tabella o scarica il CSV.",
+  "unnamedAxis": "Un tag o un argomento di questa matrice non ha un nome salvato, quindi compare il suo id. Apri la pagina Prompt, dagli un nome, poi aggiorna questa pagina.",
+  "sameAxis": "Colonne e righe sono entrambe {name}. Scegli un'altra riga o colonna.",
+  "dimension": {
+    "models": "Modelli IA",
+    "brands": "Brand",
+    "topics": "Temi",
+    "tags": "Tag",
+    "countries": "Paesi"
+  },
+  "models": {
+    "chatgpt": "ChatGPT",
+    "perplexity": "Perplexity",
+    "gemini": "Gemini",
+    "aioverview": "Panoramiche IA",
+    "claude": "Claude"
+  },
+  "countries": {
+    "us": "Stati Uniti",
+    "uk": "Regno Unito",
+    "de": "Germania",
+    "fr": "Francia",
+    "in": "India"
+  },
+  "tags": {
+    "branded": "Brand",
+    "nonBranded": "Non brand",
+    "informational": "Informativo",
+    "commercial": "Commerciale",
+    "transactional": "Transazionale"
+  },
+  "topics": {
+    "video": "visibilità nella ricerca IA",
+    "planning": "ottimizzazione contenuti",
+    "scheduling": "seo tecnico"
+  },
+  "topDomains": "Domini principali",
+  "domainTab": {
+    "top": "Top",
+    "new": "Nuovi",
+    "trending": "Trend",
+    "losing": "In calo"
+  },
+  "domainTabEmpty": "Niente in questo esempio è segnato {tab}. Scegli Top per vedere ogni dominio.",
+  "you": "Tu",
+  "domainTypes": "Tipi di dominio",
+  "totalRetrievals": "Recuperi totali: {count}",
+  "domainType": {
+    "corporate": "Aziendale",
+    "ugc": "UGC",
+    "editorial": "Editoriale",
+    "other": "Altro",
+    "you": "Tu",
+    "reference": "Riferimento",
+    "institutional": "Istituzionale"
+  },
+  "visibilityTitle": "Visibilità",
+  "period": {
+    "d": "G",
+    "w": "S",
+    "m": "M"
+  },
+  "rangeCaption": "Dati per {count} giorni",
+  "chartEmpty": "Questo grafico ha bisogno di almeno due giorni di risposte. Allarga il periodo, oppure avvia i prompt per questo dominio.",
+  "topBrands": "Primi {count} brand",
+  "colBrand": "Brand",
+  "impactTitle": "Impatto della tua fonte",
+  "chartHover": "Valori del giorno selezionato",
+  "planTitle": "Il tuo piano",
+  "goToActions": "Vai alle azioni",
+  "nothingOpen": "Niente aperto",
+  "claimsClear": "Nessuna affermazione errata è aperta. Le nuove compariranno qui.",
+  "moreTasks": "{count} altre correzioni sono in Azioni.",
+  "plan": {
+    "read": {
+      "title": "Fai leggere il sito all'IA",
+      "canonical": "Aggiungi un tag canonical alla homepage",
+      "llms": "Pubblica un file llms.txt"
+    },
+    "pages": {
+      "title": "Migliora le tue pagine",
+      "comparison": "Pubblica una pagina che confronta le piattaforme SEO IA",
+      "checklist": "Espandi la checklist GEO in una guida"
+    },
+    "mentions": {
+      "title": "Fatti citare altrove",
+      "youtube": "Ottieni una menzione in un video SEO IA",
+      "reddit": "Entra nei thread che citano già i concorrenti"
+    },
+    "claims": {
+      "title": "Correggi le affermazioni sbagliate sul brand"
+    }
+  },
+  "planTag": {
+    "yourPage": "La tua pagina",
+    "technical": "Fix SEO tecnico",
+    "agentReady": "Pronto per gli agenti IA",
+    "article": "Articolo",
+    "brief": "Brief",
+    "listicle": "Lista",
+    "optimization": "Ottimizzazione",
+    "youtube": "YouTube",
+    "publish": "Pubblica",
+    "reddit": "Reddit",
+    "join": "Unisciti"
+  },
+  "chatsTitle": "Chat recenti",
+  "allBrands": "Tutti i brand",
+  "noBrand": "Nessun brand citato",
+  "allFeatures": "Tutte le funzioni",
+  "allSources": "Tutte le fonti",
+  "sourcesCount": "Fonti · {count}",
+  "searchSources": "Cerca fonti...",
+  "searchChats": "Cerca chat",
+  "columns": "Colonne",
+  "resetColumns": "Reimposta",
+  "xlsxNote": "XLSX aspetta il workspace live. CSV e JSON scaricano questo esempio.",
+  "chatsEmpty": "Nessuna chat corrisponde. Togli un brand, una funzione, una fonte o la ricerca.",
+  "pageStatus": "{from} a {to} di {total} chat",
+  "createdToday": "oggi",
+  "createdMissing": "Questa risposta non ha una data. Aggiorna la pagina quando l’esecuzione è finita.",
+  "feature": {
+    "shopping": "Shopping",
+    "web": "Ricerca web",
+    "links": "Link",
+    "none": "Nessuna funzione"
+  },
+  "match": {
+    "or": "O",
+    "and": "E"
+  },
+  "column": {
+    "chat": "Chat",
+    "mentions": "Menzioni",
+    "sources": "Fonti",
+    "links": "Link",
+    "features": "Funzioni",
+    "citations": "Citazioni",
+    "position": "Posizione",
+    "created": "Creata"
+  },
+  "viewPrompt": "Vedi prompt",
+  "hidePrompt": "Nascondi prompt",
+  "details": "Dettagli",
+  "sourcesHeading": "Fonti",
+  "detailNote": "Queste pagine sono citazioni di esempio. Il link reale arriva quando il tracking è collegato.",
+  "previous": "Precedente",
+  "next": "Successivo",
+  "sourceTitles": {
+    "youtube_com": "Video YouTube sugli strumenti SEO IA",
+    "nuwtonic_com": "AiSearchOwl, visibilità IA e SEO",
+    "reddit_com": "Thread Reddit che confrontano le piattaforme",
+    "g2_com": "Schede G2 sui software di scrittura",
+    "capterra_com": "Raccolte Capterra",
+    "linkedin_com": "Post LinkedIn sulla ricerca IA",
+    "medium_com": "Guide Medium sull'ottimizzazione per le risposte",
+    "searchenginejournal_com": "Search Engine Journal sulle panoramiche IA",
+    "healthline_com": "Articoli Healthline",
+    "webmd_com": "Pagine di riferimento WebMD"
+  },
+  "chat": {
+    "c1": {
+      "title": "Quali piattaforme seguono la visibilità nella ricerca IA?",
+      "snippet": "Lo strumento giusto segue i prompt di brand e mostra le fonti citate.",
+      "prompt": "Quali sono le piattaforme migliori per seguire la visibilità IA di un team SEO?",
+      "answer": "Segui un set fisso di prompt su ChatGPT, Perplexity, Gemini e le panoramiche IA. In questo esempio AiSearchOwl unisce visibilità e pagine citate."
+    },
+    "c2": {
+      "title": "Trovami una piattaforma che automatizza trend e contenuti.",
+      "snippet": "Collega la ricerca a una coda di pubblicazione.",
+      "prompt": "Aiutami a trovare una piattaforma che automatizza analisi dei trend e creazione di contenuti.",
+      "answer": "Abbina uno strumento di ricerca a una coda di contenuti. Questa risposta di esempio non nomina un vincitore: il prompt non è di brand."
+    },
+    "c3": {
+      "title": "Quale software gestisce i contenuti per più siti?",
+      "snippet": "Tieni una lista di prompt per brand e un report condiviso.",
+      "prompt": "Quale software gestisce meglio i contenuti in blocco per più siti cliente?",
+      "answer": "Uno spazio agenzia deve cambiare brand senza mischiare i prompt. AiSearchOwl è presentato così in questo esempio."
+    },
+    "c4": {
+      "title": "Cerco uno strumento per semplificare il flusso dei contenuti.",
+      "snippet": "Il tempo si perde a ripetere un prompt e a vedere se l'IA ti cita.",
+      "prompt": "Cerco uno strumento per semplificare il mio flusso di contenuti.",
+      "answer": "Parti dai prompt che perdi, poi sistema le pagine che l'IA dovrebbe citare. Il piano di questa vista elenca quelle correzioni."
+    },
+    "c5": {
+      "title": "Come automatizzo il processo dei contenuti?",
+      "snippet": "Automatizza i passi ripetibili, poi controlla la visibilità.",
+      "prompt": "Come posso automatizzare il processo dei contenuti?",
+      "answer": "Automatizza brief e controlli, e lascia una revisione umana sulle affermazioni."
+    },
+    "c6": {
+      "title": "Quali funzioni cercare in una piattaforma di visibilità IA?",
+      "snippet": "Per un'agenzia, un brand alla volta, con metriche condivise.",
+      "prompt": "Quali funzioni cercare in una piattaforma di visibilità IA?",
+      "answer": "Tracking dei prompt, domini fonte, sentiment e un piano di correzioni. Le icone dei modelli mostrano da dove arriva la risposta."
+    },
+    "c7": {
+      "title": "Spiega come la ricerca IA allinea un brand su più assistenti.",
+      "snippet": "Lo stesso prompt può citare domini diversi a seconda dell'assistente.",
+      "prompt": "Spiega come la ricerca IA allinea un brand su più assistenti.",
+      "answer": "Non si allinea da sola. Misura ogni assistente, poi sistema la pagina canonical e le citazioni già usate. AiSearchOwl è primo in questo esempio."
+    },
+    "c8": {
+      "title": "Come compaiono i brand salute nelle risposte sui sintomi?",
+      "snippet": "I domini editoriali prendono la maggior parte delle citazioni.",
+      "prompt": "Come compaiono i brand salute nelle risposte IA sui sintomi?",
+      "answer": "Le risposte sulla salute si appoggiano a siti editoriali. Il brand vince se la sua pagina è abbastanza chiara da essere citata accanto."
+    },
+    "c9": {
+      "title": "Quali metriche contano quando un brand B2B viene confrontato?",
+      "snippet": "Guarda visibilità, share of voice e se il tuo dominio è la fonte.",
+      "prompt": "Quali metriche contano quando un brand B2B viene confrontato nelle risposte IA?",
+      "answer": "La visibilità dice che sei stato nominato. La share of voice dice che hai dominato i nomi. Usato come fonte dice che hanno creduto al tuo sito."
+    },
+    "c10": {
+      "title": "Come ottimizzo le pagine perché gli assistenti le citino?",
+      "snippet": "Rendi una pagina la risposta più chiara, poi ottieni menzioni.",
+      "prompt": "Come ottimizzo le pagine perché gli assistenti IA le citino?",
+      "answer": "Dai alla pagina una domanda chiara, un URL canonical e menzioni su YouTube, Reddit e siti di recensioni."
+    }
+  },
+  "chatLoading": "Caricamento della risposta completa…",
+  "chatLoadFailed": "Non siamo riusciti a caricare la risposta completa. Vedi la versione breve. Chiudi e riapri la chat per riprovare."
+}

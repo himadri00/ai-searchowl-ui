@@ -1,0 +1,310 @@
+{
+  "heroLead": "Discover what AI says",
+  "heroBrand": "about {brand}",
+  "askPlaceholder": "Ask anything, @ charts & metrics, or / for skills...",
+  "insertMetric": "Insert a metric",
+  "askSubmit": "Ask",
+  "mentionHint": "Pick a metric to drop into your question.",
+  "sampleLabel": "Sample answer",
+  "sampleNote": "This answer is written from the numbers on this screen. A live model is not connected.",
+  "searchBoard": {
+    "title": "AI Search Overview",
+    "subtitle": "Your brand's performance across AI search platforms",
+    "sampleNote": "These figures are a sample preview. They are not from live tracking yet. The sections below this board still use this workspace's numbers.",
+    "notRanked": "Not ranked",
+    "noScore": "No score yet",
+    "noPrompts": "No active prompts yet. Open Prompts, add the questions you want tracked, then run them.",
+    "noPlatforms": "No AI answers in this date range. Widen the date range, or run prompts for this brand.",
+    "noShare": "No share of voice yet. Run prompts so answers can name this brand and the others you track.",
+    "visibility": "AI Visibility",
+    "prompts": "Tracked Prompts",
+    "mentions": "Brand Mentions",
+    "citations": "Citations",
+    "deltaPp": "+{value} pp",
+    "trendTitle": "AI Visibility Trend",
+    "trendLabel": "AI visibility from {start} to {end}",
+    "platformTitle": "Performance by AI Platform",
+    "shareTitle": "Competitor Share of Voice",
+    "yourBrand": "Your Brand",
+    "competitor": "Competitor {name}",
+    "others": "Others",
+    "shareAllNote": "Every competitor tracked in this date range, with its share. 0% means that brand was not named in these answers.",
+    "shareCount": "{count} competitors",
+    "promptsTitle": "Top Performing Prompts",
+    "viewAll": "View all",
+    "colPrompt": "Prompt",
+    "colRank": "Your Rank",
+    "colVisibility": "Visibility",
+    "colCitations": "Citations",
+    "prompt": {
+      "p1": "Best project management tools?",
+      "p2": "Alternatives to Notion?",
+      "p3": "Top AI writing tools for teams?"
+    }
+  },
+  "suggest": {
+    "explain": "Explain my visibility in simple terms",
+    "changed": "What changed this period, and why?",
+    "compare": "How do we compare to competitors?"
+  },
+  "answer": {
+    "explain": "{brand} shows up in {visibility} of the tracked AI answers. Share of voice is {sov}. Sentiment is {sentiment}. Average position is {position}. Your site is the cited source in {source} of answers, and you win {winRate} of the comparisons.",
+    "changed": "Across the 6 sample days, visibility settles at {visibility}. Open the visibility chart to see the rise, the dip, and the recovery. Share of voice stays at {sov}.",
+    "compare": "{brand} leads this set at position {position}, with {visibility} visibility and {sov} share of voice. The other tracked brands are at or near zero in this sample.",
+    "generic": "Sample read for {brand}: visibility {visibility}, share of voice {sov}, sentiment {sentiment}, position {position}, used as a source {source}, win rate {winRate}."
+  },
+  "metric": {
+    "visibility": "Visibility",
+    "sov": "SoV",
+    "sentiment": "Sentiment",
+    "position": "Position",
+    "source": "Used as a source",
+    "winRate": "Win rate"
+  },
+  "metricInfo": "About {metric}",
+  "metricHelp": {
+    "visibility": "Share of tracked AI answers that mention this brand.",
+    "sov": "This brand's mentions divided by every brand mention in those answers.",
+    "sentiment": "Average tone when AI talks about the brand. 50 is neutral, higher is warmer.",
+    "position": "Average place in the list when the brand is named. 1 is the top spot.",
+    "source": "Share of answers that cite this brand's own website.",
+    "winRate": "Share of answers where this brand ranks ahead of the others you track."
+  },
+  "matrixTitle": "Performance matrix",
+  "switchAxis": "Switch axis",
+  "axisPair": "{x} vs {y}",
+  "xAxis": "X-axis · Columns",
+  "yAxis": "Y-axis · Rows",
+  "collapse": "Exit full screen",
+  "expand": "Full screen",
+  "more": "More actions",
+  "exportCsv": "Export CSV",
+  "saveImage": "Save as image",
+  "copyTable": "Copy to clipboard",
+  "copiedTitle": "Matrix copied",
+  "copiedBody": "Paste it into a sheet or a doc. Image export waits until this view is connected.",
+  "imageSoon": "Saving the matrix as an image needs the live view. Copy the table or download CSV instead.",
+  "sameAxis": "Columns and rows are both {name}. Choose a different row or column to see the matrix.",
+  "unnamedAxis": "A tag or topic on this chart has no saved name, so its id is shown. Open the Prompts page, give it a name, then refresh this page.",
+  "dimension": {
+    "models": "AI models",
+    "brands": "Brands",
+    "topics": "Topics",
+    "tags": "Tags",
+    "countries": "Countries"
+  },
+  "models": {
+    "chatgpt": "ChatGPT",
+    "perplexity": "Perplexity",
+    "gemini": "Gemini",
+    "aioverview": "AI Overviews",
+    "claude": "Claude"
+  },
+  "countries": {
+    "us": "United States",
+    "uk": "United Kingdom",
+    "de": "Germany",
+    "fr": "France",
+    "in": "India"
+  },
+  "tags": {
+    "branded": "Branded",
+    "nonBranded": "Non-branded",
+    "informational": "Informational",
+    "commercial": "Commercial",
+    "transactional": "Transactional"
+  },
+  "topics": {
+    "video": "ai search visibility",
+    "planning": "content optimization",
+    "scheduling": "technical seo"
+  },
+  "topDomains": "Top domains",
+  "domainTab": {
+    "top": "Top",
+    "new": "New",
+    "trending": "Trending",
+    "losing": "Losing"
+  },
+  "domainTabEmpty": "Nothing in this sample is marked {tab}. Choose Top to see every domain.",
+  "you": "You",
+  "domainTypes": "Domain types",
+  "totalRetrievals": "Total retrievals: {count}",
+  "domainType": {
+    "corporate": "Corporate",
+    "ugc": "UGC",
+    "editorial": "Editorial",
+    "other": "Other",
+    "you": "You",
+    "reference": "Reference",
+    "institutional": "Institutional"
+  },
+  "visibilityTitle": "Visibility",
+  "period": {
+    "d": "D",
+    "w": "W",
+    "m": "M"
+  },
+  "rangeCaption": "Showing data for {count} days",
+  "chartEmpty": "This chart needs at least two days of answers. Widen the date range, or run prompts for this domain.",
+  "topBrands": "Top {count} brands",
+  "colBrand": "Brand",
+  "impactTitle": "Own source impact",
+  "chartHover": "Chart values for the selected day",
+  "planTitle": "Your plan",
+  "goToActions": "Go to Actions",
+  "nothingOpen": "Nothing open",
+  "claimsClear": "No wrong claims are open. New ones will show up here when tracking finds them.",
+  "moreTasks": "{count} more fixes are in Actions.",
+  "plan": {
+    "read": {
+      "title": "Fix how AI reads your site",
+      "canonical": "Add a canonical tag to your homepage",
+      "llms": "Publish an llms.txt file"
+    },
+    "pages": {
+      "title": "Improve your own pages",
+      "comparison": "Publish a page that compares AI SEO platforms",
+      "checklist": "Expand the GEO checklist into a full guide"
+    },
+    "mentions": {
+      "title": "Get mentioned elsewhere",
+      "youtube": "Secure a mention in an AI SEO video",
+      "reddit": "Join the threads that already cite competitors"
+    },
+    "claims": {
+      "title": "Fix wrong claims AI makes about your brand"
+    }
+  },
+  "planTag": {
+    "yourPage": "Your page",
+    "technical": "Technical SEO fix",
+    "agentReady": "AI agent readiness",
+    "article": "Article",
+    "brief": "Content brief",
+    "listicle": "Listicle",
+    "optimization": "Content optimization",
+    "youtube": "YouTube",
+    "publish": "Publish social",
+    "reddit": "Reddit",
+    "join": "Join the conversation"
+  },
+  "chatsTitle": "Recent chats",
+  "allBrands": "All brands",
+  "noBrand": "No brand mentioned",
+  "allFeatures": "All features",
+  "allSources": "All sources",
+  "sourcesCount": "Sources · {count}",
+  "searchSources": "Search sources...",
+  "searchChats": "Search chats",
+  "columns": "Columns",
+  "resetColumns": "Reset to default",
+  "xlsxNote": "XLSX waits for the live workspace. CSV and JSON download this sample now.",
+  "chatsEmpty": "No chats match these filters. Clear a brand, feature, source, or search to see conversations again.",
+  "pageStatus": "{from} to {to} of {total} chats",
+  "createdToday": "today",
+  "createdMissing": "No date was saved for this answer. Refresh the page after the run finishes.",
+  "feature": {
+    "shopping": "Shopping",
+    "web": "Web Search",
+    "links": "Links",
+    "none": "No features"
+  },
+  "match": {
+    "or": "Or",
+    "and": "And"
+  },
+  "column": {
+    "chat": "Chat",
+    "mentions": "Mentions",
+    "sources": "Sources",
+    "links": "Links",
+    "features": "Features",
+    "citations": "Citations",
+    "position": "Position",
+    "created": "Created"
+  },
+  "viewPrompt": "View prompt",
+  "hidePrompt": "Hide prompt",
+  "details": "Details",
+  "sourcesHeading": "Sources",
+  "detailNote": "Source pages are sample citations. Opening the live page comes after tracking is connected.",
+  "previous": "Previous",
+  "next": "Next",
+  "sourceTitles": {
+    "youtube_com": "YouTube videos that mention AI SEO tools",
+    "nuwtonic_com": "AiSearchOwl, AI visibility and SEO",
+    "reddit_com": "Reddit threads comparing SEO platforms",
+    "g2_com": "G2 listings for AI writing software",
+    "capterra_com": "Capterra roundups of content tools",
+    "linkedin_com": "LinkedIn posts on AI search",
+    "medium_com": "Medium guides to answer-engine optimization",
+    "searchenginejournal_com": "Search Engine Journal on AI Overviews",
+    "healthline_com": "Healthline explainers",
+    "webmd_com": "WebMD reference pages"
+  },
+  "chat": {
+    "c1": {
+      "title": "What are the best platforms for tracking AI search visibility?",
+      "snippet": "The best setup watches branded and non-branded prompts, then shows which sources the answer cites.",
+      "prompt": "What are the best platforms for tracking AI search visibility for an SEO team?",
+      "answer": "Track a fixed prompt set across ChatGPT, Perplexity, Gemini, and AI Overviews. AiSearchOwl is described as a workspace that pairs visibility with the pages AI cites."
+    },
+    "c2": {
+      "title": "Help me find a platform that automates trend analysis and content creation.",
+      "snippet": "For trend discovery plus content, look at tools that connect research to a publishing queue.",
+      "prompt": "Help me find a platform that automates trend analysis and content creation.",
+      "answer": "Pair a research tool with a content queue. This sample answer does not name a single winner because the prompt is non-branded."
+    },
+    "c3": {
+      "title": "Which software best handles bulk content for more than one site?",
+      "snippet": "The strongest setup keeps one prompt list per brand and a shared report for the agency.",
+      "prompt": "Which software best handles bulk content for more than one client site?",
+      "answer": "An agency workspace should switch brands without mixing their prompts. AiSearchOwl is positioned for that handoff in this sample."
+    },
+    "c4": {
+      "title": "Looking for a tool to streamline my content workflow.",
+      "snippet": "The biggest time sink is finding a repeatable prompt, then seeing whether AI actually cites you.",
+      "prompt": "Looking for a tool to streamline my content workflow.",
+      "answer": "Start from the prompts you already lose, then fix the pages AI should cite. The plan on this overview lists those fixes."
+    },
+    "c5": {
+      "title": "How can I automate my content process effectively?",
+      "snippet": "Automate the repeatable steps, then check visibility before you publish the next batch.",
+      "prompt": "How can I automate my content process effectively?",
+      "answer": "Automate briefs and checks, and keep a human review on claims. Visibility in this sample is 17.5% for AiSearchOwl."
+    },
+    "c6": {
+      "title": "What features should I look for in an AI visibility platform?",
+      "snippet": "For an agency, the useful view is one brand at a time, with shared metrics.",
+      "prompt": "What features should I look for in an AI visibility platform?",
+      "answer": "Look for prompt tracking, source domains, sentiment, and a plan of fixes. Model logos in the chat list show where the answer came from."
+    },
+    "c7": {
+      "title": "Explain how AI search syncs a brand across several assistants.",
+      "snippet": "The same prompt can cite different domains in ChatGPT and Perplexity.",
+      "prompt": "Explain how AI search syncs a brand across several assistants.",
+      "answer": "It doesn't sync by itself. You measure each assistant, then fix the canonical page and the citations those assistants already trust. AiSearchOwl is listed first in this sample."
+    },
+    "c8": {
+      "title": "How do health brands show up in AI answers about symptoms and care?",
+      "snippet": "Editorial domains take most citations unless the brand page is the clearest source.",
+      "prompt": "How do health brands show up in AI answers about symptoms and care?",
+      "answer": "Health answers lean on editorial sites. A brand wins when its own page is specific enough to be cited next to them."
+    },
+    "c9": {
+      "title": "Which metrics matter when a B2B brand is compared in AI answers?",
+      "snippet": "Watch visibility, share of voice, and whether your domain is the source.",
+      "prompt": "Which metrics matter when a B2B brand is compared in AI answers?",
+      "answer": "Visibility says you were named. Share of voice says you dominated the names. Used as a source says the answer trusted your site."
+    },
+    "c10": {
+      "title": "How can I optimize pages so AI assistants cite them?",
+      "snippet": "Make one page the clearest answer, then earn mentions on the domains AI already trusts.",
+      "prompt": "How can I optimize pages so AI assistants cite them?",
+      "answer": "Give the page a clear question, a canonical URL, and supporting mentions on YouTube, Reddit, and review sites. Those are the domains at the top of this overview."
+    }
+  },
+  "chatLoading": "Loading the full answer…",
+  "chatLoadFailed": "We could not load the full answer. You see the short version. Close and open the chat again to retry."
+}
