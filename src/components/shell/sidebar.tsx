@@ -14,6 +14,7 @@ import {
   Home,
   LayoutGrid,
   Link2,
+  ListChecks,
   MessageSquare,
   MessagesSquare,
   Search,
@@ -34,6 +35,7 @@ import { cn } from '@/lib/cn'
 const icons: Record<string, LucideIcon> = {
   home: Home,
   custom: LayoutGrid,
+  actions: ListChecks,
   website: Globe,
   brand: Hexagon,
   insights: Eye,
@@ -79,7 +81,7 @@ export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
           align="right"
           panelClassName="w-64"
           trigger={() => (
-            <button type="button" aria-label={t('search')} className="grid h-8 w-8 place-items-center rounded-lg text-zinc-500 hover:bg-zinc-200/70">
+            <button type="button" aria-label={t('search')} className="grid h-8 w-8 place-items-center rounded-md text-zinc-500 hover:bg-zinc-200/70">
               <Search className="h-4 w-4" />
             </button>
           )}
@@ -101,7 +103,7 @@ export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
                 key={`${item.href}-${item.key}`}
                 href={item.href!}
                 onClick={onNavigate}
-                className="block rounded-lg px-2 py-2 text-[13px] hover:bg-zinc-100"
+                className="block rounded-md px-2 py-2 text-[13px] hover:bg-zinc-100"
               >
                 {t(item.key)}
               </Link>
@@ -110,11 +112,11 @@ export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
         </Menu>
       </div>
 
-      <div className="mx-3 mb-3 grid grid-cols-2 rounded-lg bg-zinc-100 p-0.5 text-[13px] font-medium">
+      <div className="mx-3 mb-3 grid grid-cols-2 rounded-md border border-nuw-line bg-white p-0.5 text-[13px] font-semibold">
         <button
           type="button"
           onClick={() => setAgent(false)}
-          className={cn('rounded-md py-1', !agent ? 'bg-white shadow-sm' : 'text-zinc-500')}
+          className={cn('rounded-sm py-1', !agent ? 'bg-[#171411] text-white' : 'text-zinc-500')}
         >
           {t('browse')}
         </button>
@@ -124,7 +126,7 @@ export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
             setAgent(true)
             reveal('ask')
           }}
-          className={cn('rounded-md py-1', agent ? 'bg-white shadow-sm' : 'text-zinc-500')}
+          className={cn('rounded-sm py-1', agent ? 'bg-[#171411] text-white' : 'text-zinc-500')}
         >
           {t('agent')}
         </button>
@@ -150,7 +152,7 @@ export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
             {t('showChecklist')}
           </button>
         ) : (
-          <div className="rounded-xl border border-nuw-line bg-white p-3 shadow-card">
+          <div className="rounded-lg border border-nuw-line bg-white p-3 shadow-card">
             <div className="mb-2 flex items-center justify-between gap-2">
               <p className="text-[12px] font-medium text-zinc-700">{t('startHere', { done: steps.length, total: 5 })}</p>
               <button type="button" aria-label={t('hideChecklist')} onClick={() => setChecklistHidden(true)} className="text-zinc-400 hover:text-zinc-700">
@@ -226,7 +228,7 @@ function NavBlock({
         <button
           type="button"
           onClick={onToggle}
-          className="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-[#1A1A1A] hover:bg-[#FFF1E6]"
+          className="flex w-full items-center gap-2 rounded-md px-2 py-1.5 font-semibold text-[#171411] hover:bg-[#F0EDE8]"
         >
           <Icon className="h-4 w-4" />
           <span className="flex-1 text-left">{label(item.key)}</span>
@@ -273,15 +275,15 @@ function NavLink({
       href={href}
       onClick={onNavigate}
       className={cn(
-        'flex items-center gap-2 rounded-lg px-2 py-1.5 text-[13px]',
+        'flex items-center gap-2 rounded-md px-2 py-1.5 text-[13px]',
         active
-          ? 'bg-[#E85D0C] font-medium text-white hover:bg-[#C44708] hover:text-white'
-          : 'text-[#1A1A1A] hover:bg-[#FFF1E6]',
+          ? 'bg-[#171411] font-semibold text-white hover:bg-[#171411] hover:text-white'
+          : 'text-[#302C29] hover:bg-[#F0EDE8]',
       )}
     >
       <Icon className="h-4 w-4" />
       <span className="truncate">{children}</span>
-      {dot ? <span className={cn('ml-auto h-1.5 w-1.5 rounded-full', active ? 'bg-white' : 'bg-[#E85D0C]')} /> : null}
+      {dot ? <span className={cn('ml-auto h-1.5 w-1.5', active ? 'bg-[#F05A0A]' : 'bg-[#F05A0A]')} /> : null}
     </Link>
   )
 }

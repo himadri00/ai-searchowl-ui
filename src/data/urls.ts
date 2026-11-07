@@ -13,6 +13,7 @@ export type MentionId = 'you' | 'hunt' | 'directory' | 'futurepedia' | 'futureto
 
 export type SourceUrl = {
   id: string
+  url?: string | null
   title: string
   host: string
   path: string
@@ -72,6 +73,7 @@ export function normalizeSourceUrl(row: ApiSourceUrl): LiveSourceUrl {
   })
   return {
     id: row.id ?? '',
+    url: row.url ?? null,
     title: row.title ?? '',
     host: row.host ?? '',
     path: row.path || '/',

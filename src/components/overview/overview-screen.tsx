@@ -31,7 +31,7 @@ export function OverviewScreen() {
         {show('impact') ? <SourceImpact /> : null}
         {show('plan') ? <ActionPlan /> : null}
         {show('matrix') ? (
-          <div className="rounded-2xl border border-nuw-line bg-white px-4 py-3">
+          <div className="rounded-lg border border-nuw-line bg-white px-4 py-3">
             <div className="flex flex-wrap items-center gap-3">
               <BrandMark initials={brand.initials} color={brand.color} size={22} />
               <span className="text-[15px] font-semibold">{brand.name}</span>
@@ -45,7 +45,7 @@ export function OverviewScreen() {
         {show('domains') ? <DomainsPanel /> : null}
         {show('chats') ? <RecentChats /> : null}
         {!any && !show('hero') ? (
-          <div className="rounded-2xl border border-dashed border-zinc-300 px-6 py-16 text-center">
+          <div className="rounded-lg border border-dashed border-zinc-300 bg-white px-6 py-16 text-center">
             <p className="text-base font-semibold">{t('hiddenAll')}</p>
             <p className="mt-2 text-[13px] text-zinc-500">{t('editBody')}</p>
           </div>

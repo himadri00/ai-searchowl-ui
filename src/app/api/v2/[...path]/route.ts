@@ -16,7 +16,6 @@ function levelOf(parts: string[]): Level {
   if (first === 'workspaces') return parts.length === 1 ? 'org' : 'workspace'
   if (first === 'prompt-runs') {
     if (second === 'engines' || second === 'countries' || second === 'results') return 'org'
-    if (second === 'chats' && parts.length === 3) return 'org'
     if (parts.length >= 2 && second !== 'overview' && second !== 'matrix' && second !== 'rankings' && second !== 'chats') return 'org'
     return 'scoped'
   }

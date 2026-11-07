@@ -50,13 +50,13 @@ export function TopBar({ onMenu }: { onMenu: () => void }) {
       <div className="flex min-w-0 items-center gap-2">
         <SquareChartGantt className="h-4 w-4 text-zinc-500" />
         {pathname === '/prompts/gap' ? (
-          <h1 className="flex min-w-0 items-center gap-1 truncate text-[15px]">
+          <h1 className="flex min-w-0 items-center gap-1 truncate text-[15px] font-extrabold tracking-[-0.025em]">
             <span className="text-zinc-500">{t('navSources')}</span>
             <ChevronRight className="h-3.5 w-3.5 shrink-0 text-zinc-300" />
             <span className="font-medium">{t('navGap')}</span>
           </h1>
         ) : pathname.startsWith('/prompts/urls') || pathname.startsWith('/prompts/domains') ? (
-          <h1 className="flex min-w-0 items-center gap-1 truncate text-[15px]">
+          <h1 className="flex min-w-0 items-center gap-1 truncate text-[15px] font-extrabold tracking-[-0.025em]">
             <span className="text-zinc-500">{t('navSources')}</span>
             <ChevronRight className="h-3.5 w-3.5 shrink-0 text-zinc-300" />
             {pathname.startsWith('/prompts/domains') ? (
@@ -80,13 +80,13 @@ export function TopBar({ onMenu }: { onMenu: () => void }) {
             )}
           </h1>
         ) : pathname === '/brand/insights' || pathname === '/brand/perception' || pathname.startsWith('/prompts') ? (
-          <h1 className="flex min-w-0 items-center gap-1 truncate text-[15px]">
+          <h1 className="flex min-w-0 items-center gap-1 truncate text-[15px] font-extrabold tracking-[-0.025em]">
             <span className="text-zinc-500">{pathname.startsWith('/prompts') ? t('navPrompts') : t('navBrand')}</span>
             <ChevronRight className="h-3.5 w-3.5 shrink-0 text-zinc-300" />
             <span className="font-medium">{promptCrumb(pathname, t) || (pathname === '/brand/insights' ? t('navInsights') : t('navPerception'))}</span>
           </h1>
         ) : (
-          <h1 className="truncate text-[15px] font-medium">{title}</h1>
+          <h1 className="truncate text-[15px] font-extrabold tracking-[-0.025em]">{title}</h1>
         )}
       </div>
       <div className="ml-auto flex items-center gap-1 text-[13px] text-zinc-600">

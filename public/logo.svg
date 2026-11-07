@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Orange Owl Logo</title>
+  <desc id="desc">A modern, symmetrical orange owl with pointed ear tufts, circular negative-space eyes, and a geometric dark beak. Transparent background.</desc>
+  <!-- Even-odd cutouts keep the eyes fully transparent. -->
+  <path fill="#F45114" fill-rule="evenodd" d="
+    M35 33C35 29 39 27 43 30L73 53C89 44 108 40 128 40C148 40 167 44 183 53L213 30C217 27 221 29 221 33L215 87C227 105 233 127 230 150C226 199 188 225 128 242C68 225 30 199 26 150C23 127 29 105 41 87L35 33Z
+    M91 89a39 41 0 1 0 0 82a39 41 0 1 0 0-82Z
+    M165 89a39 41 0 1 0 0 82a39 41 0 1 0 0-82Z
+  "/>
+  <circle cx="98" cy="133" r="14" fill="#1B1715"/>
+  <circle cx="158" cy="133" r="14" fill="#1B1715"/>
+  <path fill="#1B1715" d="M128 157L115 176L128 191L141 176L128 157Z"/>
+</svg>

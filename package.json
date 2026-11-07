@@ -11,6 +11,7 @@
     "@clerk/localizations": "^4.24.4",
     "@clerk/nextjs": "^7.9.23",
     "lucide-react": "^0.562.0",
+    "motion": "^14.10.1",
     "next": "^16.0.10",
     "next-intl": "^4.6.1",
     "react": "^19.0.0",

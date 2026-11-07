@@ -34,7 +34,7 @@ export function MetricStrip({ compact = false }: { compact?: boolean }) {
   }
 
   return (
-    <section id="metrics" className="grid overflow-hidden rounded-2xl border border-nuw-line bg-white sm:grid-cols-2 xl:grid-cols-6">
+    <section id="metrics" className="grid overflow-hidden rounded-lg border border-nuw-line bg-white sm:grid-cols-2 xl:grid-cols-6">
       {metricOrder.map((metric, index) => (
         <MetricCell key={metric} metric={metric} locale={locale} divider={index > 0} />
       ))}
@@ -63,7 +63,7 @@ function MetricCell({ metric, locale, divider }: { metric: MetricKey; locale: st
         </Menu>
       </div>
       <div className="mt-1 flex items-baseline gap-2">
-        <p className="flex items-center gap-1.5 text-[22px] font-semibold tracking-tight text-zinc-950">
+        <p className="flex items-center gap-1.5 text-[22px] font-extrabold tracking-[-0.03em] text-zinc-950">
           {metric === 'sentiment' ? <span className="h-2 w-2 rounded-full bg-[#0f9f6e]" /> : null}
           {formatMetricValue(metric, item.value, locale)}
         </p>

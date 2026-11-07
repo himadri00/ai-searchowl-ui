@@ -3,16 +3,18 @@
 @tailwind utilities;
 
 :root {
-  --ink: #1A1A1A;
-  --muted: #6F6A66;
-  --line: #F3E6DC;
-  --sidebar: #FFFFFF;
-  --green: #E85D0C;
-  --red: #1A1A1A;
-  --primary: #E85D0C;
-  --button: #E85D0C;
-  --amber: #FFE4CC;
-  --orange: #E85D0C;
+  --ink: #171411;
+  --muted: #68625C;
+  --line: #DEDAD3;
+  --sidebar: #F7F5F1;
+  --green: #F05A0A;
+  --red: #171411;
+  --primary: #F05A0A;
+  --button: #171411;
+  --amber: #F3E5D8;
+  --orange: #F05A0A;
+  --paper: #F7F5F1;
+  --surface: #FFFFFF;
 }
 
 html,
@@ -22,7 +24,7 @@ body {
 
 body {
   color: var(--ink);
-  background: #FFFFFF;
+  background: var(--paper);
   font-feature-settings: 'cv11', 'ss01';
   overflow-x: clip;
 }
@@ -48,7 +50,28 @@ input[type='radio'] {
 }
 
 .app-main {
-  background: #FFFFFF;
+  background: var(--paper);
+}
+
+.product-ui :is(h1, h2, h3) {
+  letter-spacing: -0.025em;
+}
+
+.product-ui h1 {
+  font-weight: 800;
+}
+
+.product-ui :is(button, a, input, textarea, select) {
+  transition-duration: 180ms;
+  transition-timing-function: ease;
+}
+
+.product-ui :is(.rounded-xl, .rounded-2xl, .rounded-3xl) {
+  border-radius: 0.5rem;
+}
+
+.product-ui .rounded-lg {
+  border-radius: 0.375rem;
 }
 
 /* AiSearchOwl home, motion (disabled when the user prefers reduced motion) */
@@ -156,6 +179,13 @@ input[type='radio'] {
 .cl-headerSubtitle.auth-hide-clerk-header {
   display: none;
 }
+
+/* Motion-first homepage polish */
+.noise { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.91 0 0 0 0 0.36 0 0 0 0 0.05 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E"); }
+input[type='range'] { accent-color: #E85D0C; cursor: pointer; height: 20px; }
+input[type='range']:focus-visible, a:focus-visible, button:focus-visible { outline: 2px solid #E85D0C; outline-offset: 3px; border-radius: 6px; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .marquee-track { animation: none !important; } }
 
 /* Calm premium cards: a soft lift on hover, nothing loud */
 .premium-card { transition: transform 220ms ease, box-shadow 220ms ease; }

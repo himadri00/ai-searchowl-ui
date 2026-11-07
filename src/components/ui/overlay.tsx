@@ -50,7 +50,7 @@ export function Menu({
         {open ? (
           <div
             className={cn(
-              'absolute z-50 mt-2 rounded-xl border border-nuw-line bg-white p-1.5 shadow-menu',
+              'absolute z-50 mt-2 rounded-lg border border-nuw-line bg-white p-1.5 shadow-menu',
               align === 'right' ? 'right-0' : 'left-0',
               panelClassName,
             )}
@@ -83,13 +83,13 @@ export function MenuItem({
         close()
       }}
       className={cn(
-        'flex w-full items-center gap-2 rounded-lg px-2.5 py-2 text-left text-[13px] text-zinc-800 hover:bg-zinc-100',
-        active && 'bg-zinc-100 font-medium',
+        'flex w-full items-center gap-2 rounded-md px-2.5 py-2 text-left text-[13px] text-zinc-800 hover:bg-zinc-100',
+        active && 'bg-[#171411] font-semibold text-white',
       )}
     >
-      {icon ? <span className="text-zinc-500">{icon}</span> : null}
+      {icon ? <span className={active ? 'text-white/60' : 'text-zinc-500'}>{icon}</span> : null}
       <span className="min-w-0 flex-1 truncate">{children}</span>
-      {active ? <span className="text-zinc-700">✓</span> : null}
+      {active ? <span className="text-[#F05A0A]">✓</span> : null}
     </button>
   )
 }
@@ -128,7 +128,7 @@ export function Modal({
         aria-label={title}
         onMouseDown={(event) => event.stopPropagation()}
         className={cn(
-          'max-h-[86vh] w-full overflow-auto rounded-2xl bg-white shadow-menu',
+          'max-h-[86vh] w-full overflow-auto rounded-lg border border-nuw-line bg-white shadow-menu',
           wide ? 'max-w-4xl' : 'max-w-md',
           panelClassName,
         )}
@@ -163,7 +163,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
       {children}
       <div className="pointer-events-none fixed bottom-4 right-4 z-[80] flex w-[min(360px,calc(100vw-2rem))] flex-col gap-2">
         {toasts.map((toast) => (
-          <div key={toast.id} className="pointer-events-auto rounded-xl border border-nuw-line bg-white px-4 py-3 shadow-menu">
+          <div key={toast.id} className="pointer-events-auto rounded-lg border border-nuw-line bg-white px-4 py-3 shadow-menu">
             <p className="text-sm font-semibold text-zinc-900">{toast.title}</p>
             <p className="mt-1 text-[13px] leading-5 text-zinc-600">{toast.body}</p>
           </div>

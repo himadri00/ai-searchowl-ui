@@ -2,7 +2,7 @@ export type MetricKey = 'visibility' | 'sov' | 'sentiment' | 'position' | 'sourc
 export type DimensionKey = 'models' | 'brands' | 'topics' | 'tags' | 'countries'
 export type RangeKey = 'all' | '7d' | '30d' | '90d'
 export type WorkspaceMode = 'solo' | 'agency'
-export type ModelId = 'chatgpt' | 'perplexity' | 'gemini' | 'claude' | 'aioverview'
+export type ModelId = 'chatgpt' | 'perplexity' | 'gemini' | 'claude' | 'aioverview' | 'aimode' | 'copilot'
 export type FeatureId = 'shopping' | 'web' | 'links'
 export type DomainTab = 'top' | 'new' | 'trending' | 'losing'
 
@@ -63,6 +63,7 @@ export type ChatRecord = {
   country: string
   tag: string
   sources: string[]
+  sourceUrls?: CitationSource[]
   links: number
   citations: number
   position: number | null
@@ -73,6 +74,133 @@ export type ChatRecord = {
   prompt?: string
   answer?: string
   createdAt?: string | null
+  verdict?: ResultVerdict
+  explanation?: ResultExplanation
+}
+
+export type CitationSource = {
+  id: string
+  url: string
+  host: string
+  path: string
+  title?: string | null
+  citationIndex?: number | null
+  sourceUrlId?: string | null
+  isTrackedBrand: boolean
+  citedInline?: boolean
+  snippet?: string | null
+}
+
+export type ResultVerdict = {
+  state: 'recommended' | 'mentioned' | 'cited' | 'missing'
+  trackedBrandId: string
+  trackedBrandPosition: number | null
+  winnerBrandId: string | null
+  winnerBrandName: string | null
+  winnerPosition: number | null
+}
+
+export type EvidenceReference = {
+  type: 'chat' | 'prompt_run_result' | 'source_url' | 'brand_position' | 'site_audit' | 'fact_check'
+  id: string
+  label: string
+  href?: string | null
+  details: Record<string, unknown>
+  observedAt?: string | null
+}
+
+export type ResultExplanation = {
+  status: 'observed' | 'inferred' | 'unknown'
+  summary: string
+  evidence: EvidenceReference[]
+  causalClaim?: boolean
+}
+
+export type ActionStatus = 'todo' | 'in_progress' | 'done' | 'dismissed'
+export type ActionPriority = 'critical' | 'high' | 'medium' | 'low'
+export type ActionGroup = 'site_readability' | 'owned_pages' | 'external_mentions' | 'incorrect_claims'
+
+export type OutcomeSnapshot = {
+  runId: string
+  resultId: string
+  observedAt: string
+  visibility: number | null
+  cited: boolean | null
+  position: number | null
+  winnerBrandId: string | null
+  mentioned?: boolean | null
+  mentionRate?: number | null
+  citationRate?: number | null
+  modelsObserved?: string[]
+  checksObserved?: string[]
+}
+
+export type ActionOutcome = {
+  status: 'waiting_for_run' | 'insufficient_data' | 'improved' | 'no_change' | 'declined'
+  baseline: OutcomeSnapshot | null
+  latest: OutcomeSnapshot | null
+  runsObserved: number
+  firstEvaluatedAt: string | null
+  lastEvaluatedAt: string | null
+  summary: string
+}
+
+export type ActionItem = {
+  id: string
+  group: ActionGroup
+  source: 'automatic' | 'manual'
+  ruleKey: string
+  title: string
+  description: string
+  priority: ActionPriority
+  confidence: number
+  status: ActionStatus
+  recommendedChange: string
+  rationale: string
+  target: {
+    type: 'existing_url' | 'new_page' | 'external_source' | 'technical'
+    sourceUrlId?: string | null
+    url?: string | null
+  }
+  trigger: {
+    promptId?: string | null
+    promptText: string
+    model: string
+    chatId?: string | null
+    runResultId?: string | null
+    observedAt?: string | null
+  }
+  evidence: EvidenceReference[]
+  impact?: {
+    kind: 'prompt_visibility_summary'
+    affectedModels: string[]
+    allModels: string[]
+    missingModels: string[]
+    uncitedModels: string[]
+    affectedResults: number
+    totalResults: number
+    topCompetitors: Array<{ name: string; answers: number }>
+    topSources: Array<{ domain: string; answers: number; url?: string | null }>
+    pageMatch: {
+      type?: 'existing_url' | 'new_page'
+      url?: string | null
+      pageTitle?: string | null
+      matchedConcepts?: string[]
+      missingConcepts?: string[]
+      contentChecked?: boolean
+    }
+  } | null
+  evidenceMessage?: string
+  createdAt: string
+  updatedAt: string
+  completedAt?: string | null
+  outcome: ActionOutcome | null
+}
+
+export type ActionPlanGroup = {
+  id: 'read' | 'pages' | 'mentions' | 'claims'
+  total: number
+  tasks: ActionItem[]
 }
 
 export const metricOrder: MetricKey[] = ['visibility', 'sov', 'sentiment', 'position', 'source', 'winRate']
@@ -95,6 +223,7 @@ export type NavItem = { href?: string; key: string; icon: string; children?: Nav
 export const navigation: NavItem[] = [
   { href: '/home', key: 'navHome', icon: 'home' },
   { href: '/home', key: 'overview', icon: 'custom' },
+  { href: '/actions', key: 'navActions', icon: 'actions' },
   { href: '/website', key: 'navWebsite', icon: 'website' },
   {
     key: 'navBrand',

@@ -611,7 +611,7 @@ function Heatmap({
                 <td className="whitespace-nowrap px-2 py-1 font-medium">{attribute.name}</td>
                 {columns.map((brand) => {
                   const value = brand.scores[attribute.id]
-                  if (value == null) return <td key={brand.id} className="px-1 py-1 text-center text-[13px] text-zinc-300" title={t('notScored')}>—</td>
+                  if (value == null) return <td key={brand.id} className="px-1 py-1 text-center text-[13px] text-zinc-300" title={t('notScored')}>N/A</td>
                   return (
                     <td key={brand.id} className="px-1 py-1">
                       <div className="rounded-md px-2 py-1.5 text-center font-medium tabular-nums" style={heatStyle(value, max)}>

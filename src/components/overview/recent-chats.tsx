@@ -250,6 +250,7 @@ export function RecentChats() {
                     <td className="max-w-[360px] px-4 py-3">
                       <p className="truncate font-medium text-zinc-900">{chatText(chat, 'title', t)}</p>
                       <p className="truncate text-[12px] text-zinc-500">{chatText(chat, 'snippet', t)}</p>
+                      {chat.verdict ? <p className="mt-1 text-[11px] font-medium text-zinc-500">{chat.verdict.state === 'recommended' ? 'Recommended' : chat.verdict.state === 'mentioned' ? 'Mentioned' : chat.verdict.state === 'cited' ? 'Cited, not mentioned' : 'Tracked brand missing'}</p> : null}
                     </td>
                   ) : null}
                   {visible.includes('mentions') ? <td className="px-4 py-3"><ModelDots models={chat.models} extra={chat.citations} /></td> : null}

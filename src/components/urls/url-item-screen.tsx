@@ -118,7 +118,7 @@ export function UrlItemScreen({ id }: { id: string }) {
               <span className="text-emerald-700">{url.path}</span>
             </h2>
             <p className="mt-1 text-[13px] text-zinc-500">
-              {url.host}{url.path === '/' ? '' : url.path}
+              {url.url ? <a href={url.url} target="_blank" rel="noreferrer" className="break-all text-blue-700 hover:underline">{url.url}</a> : `${url.host}${url.path === '/' ? '' : url.path}`}
               <button type="button" onClick={() => setContent(true)} className="ml-3 underline">{t('viewContent')}</button>
             </p>
           </div>

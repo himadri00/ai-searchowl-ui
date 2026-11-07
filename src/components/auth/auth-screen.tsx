@@ -24,11 +24,11 @@ export async function AuthScreen({ locale, mode, start }: { locale: string; mode
   const isSignIn = mode === 'sign-in'
 
   return (
-    <main className="grid min-h-screen bg-white text-nuw-ink lg:grid-cols-[1.05fr_1fr]">
-      <section className="hidden flex-col justify-between bg-[#FFF6F0] px-10 py-10 text-[#1A1A1A] lg:flex xl:px-14">
+    <main className="product-ui grid min-h-screen bg-[#F7F5F1] text-nuw-ink lg:grid-cols-[1.05fr_1fr]">
+      <section className="hidden flex-col justify-between border-r border-nuw-line bg-[#F0EDE8] px-10 py-10 text-[#171411] lg:flex xl:px-14">
         <BrandLockup className="self-start" />
         <div className="max-w-md">
-          <h2 className="text-[28px] font-semibold leading-9 tracking-tight">{t('panelTitle')}</h2>
+          <h2 className="text-[30px] font-extrabold leading-9 tracking-[-0.035em]">{t('panelTitle')}</h2>
           <p className="mt-3 text-[14px] leading-6 text-[#6F6A66]">{t('panelBody')}</p>
           <ul className="mt-6 space-y-3 text-[14px] leading-6">
             {[t('panelPointOne'), t('panelPointTwo'), t('panelPointThree')].map((point) => (
@@ -42,15 +42,15 @@ export async function AuthScreen({ locale, mode, start }: { locale: string; mode
         <p className="max-w-md text-[12px] leading-5 text-[#8A847E]">{t('panelNote')}</p>
       </section>
 
-      <section className="flex min-h-screen flex-col overflow-auto px-4 py-8 sm:px-8 lg:py-10">
+      <section className="flex min-h-screen flex-col overflow-auto bg-white px-4 py-8 sm:px-8 lg:py-10">
         <div className="mx-auto flex w-full max-w-[420px] flex-1 flex-col justify-center">
-          <h1 className="text-[24px] font-semibold tracking-tight">{isSignIn ? t('signInTitle') : t('signUpTitle')}</h1>
+          <h1 className="text-[28px] font-extrabold tracking-[-0.035em]">{isSignIn ? t('signInTitle') : t('signUpTitle')}</h1>
           <p className="mt-2 text-[14px] leading-6 text-zinc-500">{isSignIn ? t('signInBody') : t('signUpBody')}</p>
           {missing.length === 0 ? <BrandLockup className="mt-6" /> : null}
 
           <div className="mt-4">
             {missing.length > 0 ? (
-              <div role="alert" className="rounded-2xl border border-amber-300 bg-amber-50 p-5">
+              <div role="alert" className="rounded-lg border border-[#D7B99E] bg-[#F7F5F1] p-5">
                 <p className="flex items-start gap-2 text-[15px] font-semibold text-amber-900">
                   <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
                   {t('setupTitle')}

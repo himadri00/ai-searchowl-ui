@@ -34,34 +34,34 @@ export function localePath(locale: string, path: string) {
 
 export const clerkAppearance = {
   variables: {
-    colorPrimary: '#E85D0C',
-    colorText: '#1A1A1A',
-    colorTextSecondary: '#6F6A66',
+    colorPrimary: '#F05A0A',
+    colorText: '#171411',
+    colorTextSecondary: '#68625C',
     colorBackground: '#ffffff',
     colorInputBackground: '#ffffff',
-    colorInputText: '#1A1A1A',
+    colorInputText: '#171411',
     colorDanger: '#dc2626',
     fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif',
-    borderRadius: '0.625rem',
+    borderRadius: '0.375rem',
   },
   elements: {
     rootBox: 'w-full',
     cardBox: 'w-full shadow-none',
-    headerTitle: 'text-[20px] font-semibold text-black',
+    headerTitle: 'text-[22px] font-extrabold tracking-[-0.03em] text-black',
     headerSubtitle: 'text-[13px] leading-5 text-zinc-500',
     formFieldLabel: 'text-[13px] font-medium text-zinc-700',
-    formFieldInput: 'h-10 rounded-lg border-nuw-line text-[14px] focus:border-nuw-primary',
+    formFieldInput: 'h-10 rounded-md border-nuw-line text-[14px] focus:border-nuw-primary',
     formButtonPrimary:
-      'h-10 rounded-lg bg-nuw-button text-[14px] font-medium normal-case hover:bg-nuw-buttonHover focus:bg-nuw-buttonHover',
+      'h-10 rounded-md bg-nuw-button text-[14px] font-bold normal-case hover:bg-nuw-buttonHover focus:bg-nuw-buttonHover',
     footerActionText: 'text-[13px] text-zinc-500',
     footerActionLink: 'text-[13px] font-medium text-nuw-primary hover:text-nuw-primary',
-    socialButtonsBlockButton: 'h-10 rounded-lg border-nuw-line text-[13px] hover:bg-zinc-50',
+    socialButtonsBlockButton: 'h-10 rounded-md border-nuw-line text-[13px] hover:bg-zinc-50',
     dividerLine: 'bg-nuw-line',
     dividerText: 'text-[12px] text-zinc-400',
     identityPreviewEditButton: 'text-nuw-primary',
     formFieldAction: 'text-nuw-primary',
     alertText: 'text-[13px] leading-5',
-    otpCodeFieldInput: 'rounded-lg border-nuw-line',
+    otpCodeFieldInput: 'rounded-md border-nuw-line',
   },
 } as const
 
@@ -76,7 +76,7 @@ export function clerkFormAppearance(start: boolean) {
     ...clerkAppearance,
     elements: {
       ...clerkAppearance.elements,
-      card: 'w-full rounded-2xl border border-nuw-line px-6 py-6 shadow-card sm:px-8',
+      card: 'w-full rounded-lg border border-nuw-line px-6 py-6 shadow-card sm:px-8',
       footer: 'hidden',
       headerTitle: start ? 'auth-hide-clerk-header' : clerkAppearance.elements.headerTitle,
       headerSubtitle: start ? 'auth-hide-clerk-header' : clerkAppearance.elements.headerSubtitle,

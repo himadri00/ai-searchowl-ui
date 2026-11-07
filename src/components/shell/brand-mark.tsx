@@ -18,6 +18,19 @@ export function BrandMark({
   )
 }
 
+export function AiSearchMark({ size = 32 }: { size?: number }) {
+  return (
+    <img
+      src="/logo.svg"
+      alt=""
+      width={size}
+      height={size}
+      className="inline-block shrink-0"
+      style={{ width: size, height: size }}
+    />
+  )
+}
+
 export function Favicon({ host, src, className = 'h-4 w-4' }: { host: string; src?: string; className?: string }) {
   return (
     <span className={`relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-sm bg-zinc-100 ${className}`}>

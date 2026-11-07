@@ -1,24 +1,15 @@
 import { Search } from 'lucide-react'
 
-const ORANGE = '#E85D0C'
-
 export function OwlBadge({ size = 32 }: { size?: number }) {
   return (
-    <span aria-hidden className="inline-grid shrink-0 place-items-center" style={{ width: size, height: size }}>
-      <svg viewBox="0 0 32 32" width={size} height={size}>
-        <rect width="32" height="32" rx="9" fill={ORANGE} />
-        <path d="M8.2 14.2c1.6-5.2 4.2-6.4 6.2-2.2" fill="#FFD7A8" />
-        <path d="M23.8 14.2c-1.6-5.2-4.2-6.4-6.2-2.2" fill="#FFD7A8" />
-        <ellipse cx="16" cy="18.2" rx="8.2" ry="7.2" fill="#FFF7F1" />
-        <circle cx="12.7" cy="17.6" r="2.35" fill="#fff" />
-        <circle cx="19.3" cy="17.6" r="2.35" fill="#fff" />
-        <circle cx="13.05" cy="17.85" r="1.15" fill="#2A1A10" />
-        <circle cx="19.65" cy="17.85" r="1.15" fill="#2A1A10" />
-        <circle cx="12.55" cy="17.3" r="0.4" fill="#fff" />
-        <circle cx="19.15" cy="17.3" r="0.4" fill="#fff" />
-        <path d="M14.7 20.6h2.6l-1.3 1.6z" fill="#F08A3A" />
-      </svg>
-    </span>
+    <img
+      src="/logo.svg"
+      alt=""
+      width={size}
+      height={size}
+      className="inline-block shrink-0"
+      style={{ width: size, height: size }}
+    />
   )
 }
 

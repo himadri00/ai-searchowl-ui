@@ -20,7 +20,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   if (onboarding || authPage || landing) return <>{children}</>
 
   return (
-    <div className="flex h-screen overflow-hidden bg-nuw-canvas text-[13px] text-nuw-ink">
+    <div className="product-ui flex h-screen overflow-hidden bg-nuw-canvas text-[13px] text-nuw-ink">
       <div className="hidden lg:block">
         <Sidebar />
       </div>

@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight, Check, Clock, Languages, LoaderCircle, Plus, Tra
 import { Link, useRouter } from '@/i18n/routing'
 import { readPlanChoice, type PlanChoice } from '@/lib/plan-choice'
 import { Flag } from '@/components/prompts/flag'
+import { AiSearchMark } from '@/components/shell/brand-mark'
 import { V2Error } from '@/lib/v2'
 import { useWorkspace } from '@/components/workspace/workspace-context'
 import { cn } from '@/lib/cn'
@@ -329,7 +330,7 @@ export function OnboardingFlow() {
   const canGoBack = !busy && step !== 'mode' && step !== 'done'
 
   return (
-    <div className="flex min-h-screen flex-col bg-white text-[13px] text-nuw-ink">
+    <div className="product-ui flex min-h-screen flex-col bg-[#F7F5F1] text-[13px] text-nuw-ink">
       {preview ? (
         <p role="status" className="border-b border-amber-200 bg-amber-50 px-5 py-2 text-center text-[12px] leading-5 text-amber-900">
           {t(`preview.${preview}`)}
@@ -350,7 +351,7 @@ export function OnboardingFlow() {
           )}
         </p>
       ) : null}
-      <header className="flex h-14 shrink-0 items-center gap-3 px-5">
+      <header className="flex h-14 shrink-0 items-center gap-3 border-b border-nuw-line bg-[#F7F5F1] px-5">
         <Mark />
         {canGoBack ? (
           <button
@@ -492,13 +493,7 @@ export function OnboardingFlow() {
 }
 
 function Mark() {
-  return (
-    <span aria-hidden className="grid h-7 w-7 place-items-center rounded-lg bg-nuw-primary">
-      <svg viewBox="0 0 32 32" className="h-5 w-5">
-        <path d="M9 22V10h3.2l3.8 7.2L19.8 10H23v12h-2.6v-7.4L17 22h-2l-3.4-7.4V22H9z" fill="white" />
-      </svg>
-    </span>
-  )
+  return <AiSearchMark size={28} />
 }
 
 function Centered({ children }: { children: ReactNode }) {
@@ -508,7 +503,7 @@ function Centered({ children }: { children: ReactNode }) {
 function Heading({ title, body }: { title: string; body?: string }) {
   return (
     <div className="mt-8 text-center">
-      <h1 className="text-[22px] font-medium tracking-tight text-zinc-900">{title}</h1>
+      <h1 className="text-[28px] font-extrabold tracking-[-0.04em] text-zinc-900">{title}</h1>
       {body ? <p className="mx-auto mt-1.5 max-w-md text-[13px] leading-5 text-zinc-500">{body}</p> : null}
     </div>
   )
@@ -516,8 +511,8 @@ function Heading({ title, body }: { title: string; body?: string }) {
 
 function Glow({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <div className={cn('mx-auto w-full max-w-[440px] rounded-2xl bg-gradient-to-r from-blue-100 via-white to-pink-100 p-px shadow-[0_10px_30px_rgba(1,76,255,0.08)]', className)}>
-      <div className="rounded-[15px] bg-white">{children}</div>
+    <div className={cn('mx-auto w-full max-w-[440px] rounded-lg border border-nuw-line bg-white shadow-card', className)}>
+      <div className="rounded-[7px] bg-white">{children}</div>
     </div>
   )
 }
@@ -528,7 +523,7 @@ function ArrowButton({ busy, label, disabled }: { busy?: boolean; label: string;
       type="submit"
       disabled={busy || disabled}
       aria-label={label}
-      className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-nuw-button text-white hover:bg-nuw-buttonHover disabled:opacity-40"
+      className="grid h-7 w-7 shrink-0 place-items-center rounded-md bg-nuw-button text-white hover:bg-nuw-buttonHover disabled:opacity-40"
     >
       {busy ? <LoaderCircle className="h-3.5 w-3.5 animate-spin" /> : <ArrowRight className="h-3.5 w-3.5" />}
     </button>
@@ -541,7 +536,7 @@ function PrimaryButton({ children, onClick, className, disabled, type = 'button'
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={cn('inline-flex items-center gap-1.5 rounded-lg bg-nuw-button px-4 py-2 text-[13px] font-medium text-white hover:bg-nuw-buttonHover disabled:opacity-40', className)}
+      className={cn('inline-flex items-center gap-1.5 rounded-md bg-nuw-button px-4 py-2 text-[13px] font-bold text-white hover:bg-nuw-buttonHover disabled:opacity-40', className)}
     >
       {children}
     </button>
@@ -550,7 +545,7 @@ function PrimaryButton({ children, onClick, className, disabled, type = 'button'
 
 function SecondaryButton({ children, onClick }: { children: ReactNode; onClick: () => void }) {
   return (
-    <button type="button" onClick={onClick} className="rounded-lg border border-nuw-line bg-white px-4 py-2 text-[13px] font-medium text-zinc-800 hover:bg-zinc-100">
+    <button type="button" onClick={onClick} className="rounded-md border border-nuw-line bg-white px-4 py-2 text-[13px] font-semibold text-zinc-800 hover:bg-zinc-100">
       {children}
     </button>
   )
@@ -598,12 +593,8 @@ function ModeStep({ email, saving, error, onPick }: { email: string | null; savi
 
   return (
     <Centered>
-      <span className="grid h-10 w-10 place-items-center rounded-xl bg-nuw-primary">
-        <svg viewBox="0 0 32 32" className="h-7 w-7">
-          <path d="M9 22V10h3.2l3.8 7.2L19.8 10H23v12h-2.6v-7.4L17 22h-2l-3.4-7.4V22H9z" fill="white" />
-        </svg>
-      </span>
-      <h1 className="mt-5 text-center text-[22px] font-medium tracking-tight">{domain ? t('modeTitleDomain', { domain }) : t('modeTitle')}</h1>
+      <AiSearchMark size={40} />
+      <h1 className="mt-5 text-center text-[28px] font-extrabold tracking-[-0.04em]">{domain ? t('modeTitleDomain', { domain }) : t('modeTitle')}</h1>
       <p className="mt-1.5 text-zinc-500">{t('modeBody')}</p>
       <div className="mt-6 grid w-full max-w-[460px] gap-3 sm:grid-cols-2">
         {cards.map((card) => (
@@ -612,10 +603,10 @@ function ModeStep({ email, saving, error, onPick }: { email: string | null; savi
             type="button"
             disabled={saving}
             onClick={() => onPick(card.mode)}
-            className="group flex flex-col rounded-xl border border-nuw-line bg-white p-3.5 text-left shadow-card transition hover:border-zinc-300 disabled:opacity-60"
+            className="group flex flex-col rounded-lg border border-nuw-line bg-white p-3.5 text-left shadow-card transition hover:-translate-y-0.5 hover:border-[#171411] disabled:opacity-60"
           >
             <span className="flex h-8 w-fit items-center rounded-lg border border-nuw-line px-2.5">{card.icon}</span>
-            <span className="mt-6 text-[14px] font-medium text-zinc-900">{card.title}</span>
+            <span className="mt-6 text-[14px] font-bold text-zinc-900">{card.title}</span>
             <span className="mt-0.5 flex items-center justify-between gap-2 text-[12px] text-zinc-500">
               {card.body}
               <ArrowRight className="h-3.5 w-3.5 shrink-0 text-zinc-400 transition group-hover:translate-x-0.5 group-hover:text-zinc-900" />
@@ -1188,9 +1179,9 @@ function TopicsStep({
 }
 
 const intentColors = {
-  informational: { bar: '#dce6ff', dot: '#0ea5e9' },
-  commercial: { bar: '#fdebd9', dot: '#f97316' },
-  transactional: { bar: '#dcf2e3', dot: '#15803d' },
+  informational: { bar: '#E8E4DE', dot: '#68625C' },
+  commercial: { bar: '#F3E5D8', dot: '#F05A0A' },
+  transactional: { bar: '#D8D3CC', dot: '#171411' },
 }
 
 function Share({ dot, label, value }: { dot: string; label: string; value: number }) {
@@ -1380,11 +1371,11 @@ function FocusStep({ initial, error, onSubmit }: { initial: Focus; error: string
       </h2>
       <div className="mt-2 flex gap-1.5" aria-hidden>
         <span className="h-5 rounded-md bg-zinc-100" style={{ width: `${split.nonBranded}%` }} />
-        <span className="h-5 rounded-md bg-blue-50" style={{ width: `${100 - split.nonBranded}%` }} />
+        <span className="h-5 rounded-md bg-[#F3E5D8]" style={{ width: `${100 - split.nonBranded}%` }} />
       </div>
       <div className="mt-1.5 flex flex-wrap gap-1.5">
         <Share dot="#3A3F4C" label={t('focusNonBranded')} value={split.nonBranded} />
-        <Share dot="#014CFF" label={t('focusBranded')} value={100 - split.nonBranded} />
+        <Share dot="#F05A0A" label={t('focusBranded')} value={100 - split.nonBranded} />
       </div>
 
       <h2 className="mt-6 text-[13px] font-medium">

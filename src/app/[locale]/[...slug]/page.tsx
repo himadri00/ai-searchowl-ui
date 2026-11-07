@@ -8,12 +8,14 @@ import { DomainsScreen } from '@/components/domains/domains-screen'
 import { GapScreen } from '@/components/gaps/gap-screen'
 import { UrlItemScreen } from '@/components/urls/url-item-screen'
 import { UrlsScreen } from '@/components/urls/urls-screen'
+import { ActionsScreen } from '@/components/actions/actions-screen'
 import { ComingSoon } from '@/components/overview/coming-soon'
 
 export default async function SectionPage({ params }: { params: Promise<{ locale: string; slug: string[] }> }) {
   const { locale, slug } = await params
   setRequestLocale(locale)
   const path = slug.join('/')
+  if (path === 'actions') return <ActionsScreen />
   if (path === 'brand/insights') return <InsightsScreen />
   if (path === 'brand/perception') return <PerceptionScreen />
   if (path === 'prompts') return <PromptsScreen />

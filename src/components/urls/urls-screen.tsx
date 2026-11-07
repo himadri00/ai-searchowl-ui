@@ -424,13 +424,17 @@ export function UrlsScreen() {
                       <tr key={url.id} className="border-b border-nuw-line align-top">
                         <td className="px-3 py-3"><input type="checkbox" aria-label={t('selectRow')} checked={selected.includes(url.id)} onChange={() => setSelected((current) => current.includes(url.id) ? current.filter((id) => id !== url.id) : [...current, url.id])} /></td>
                         <td className="px-2 py-3">
-                          <Link href={`/prompts/urls/${url.id}`} className="flex items-start gap-2">
+                          <div className="flex items-start gap-2">
                             <Favicon host={url.host} />
                             <span>
-                              <span className="block font-medium text-zinc-800">{url.title}</span>
-                              <span className="text-[12px] text-zinc-400">{url.host}{url.path === '/' ? '' : url.path}</span>
+                              <Link href={`/prompts/urls/${url.id}`} className="block font-medium text-zinc-800 hover:underline">{url.title || url.host}</Link>
+                              {url.url ? (
+                                <a href={url.url} target="_blank" rel="noreferrer" className="block max-w-[360px] truncate text-[12px] text-blue-700 hover:underline">{url.url}</a>
+                              ) : (
+                                <span className="text-[12px] text-zinc-400">{url.host}{url.path === '/' ? '' : url.path}</span>
+                              )}
                             </span>
-                          </Link>
+                          </div>
                         </td>
                         {columns.filter((id) => id !== 'gap' || gap).map((id) => (
                           <td key={id} className="whitespace-nowrap px-2 py-3">
