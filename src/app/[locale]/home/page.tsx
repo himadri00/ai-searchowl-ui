@@ -1,8 +1,9 @@
+import { redirect } from 'next/navigation'
 import { setRequestLocale } from 'next-intl/server'
-import { OverviewScreen } from '@/components/overview/overview-screen'
+import { localePath } from '@/lib/clerk'
 
-export default async function DashboardHomePage({ params }: { params: Promise<{ locale: string }> }) {
+export default async function HomeRedirect({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
   setRequestLocale(locale)
-  return <OverviewScreen />
+  redirect(localePath(locale, '/overview'))
 }

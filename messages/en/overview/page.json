@@ -7,6 +7,25 @@
   "mentionHint": "Pick a metric to drop into your question.",
   "sampleLabel": "Sample answer",
   "sampleNote": "This answer is written from the numbers on this screen. A live model is not connected.",
+  "decision": {
+    "eyebrow": "Decision brief",
+    "yourBrand": "your brand",
+    "title": "What the latest answers mean for {brand}",
+    "body": "Start with the observed result, inspect its evidence, choose one improvement, then check later runs without claiming that one change caused the result.",
+    "trackedQuestions": "Tracked questions",
+    "trackedQuestionsHelp": "Questions currently scheduled across the AI models you selected.",
+    "answersTitle": "Inspect saved answers",
+    "answersBody": "{count} answers are available for this period.",
+    "missesTitle": "Review missed answers",
+    "missesBody": "{count} answers named another brand and left yours out.",
+    "noMissesBody": "No saved answer in this period left your brand out.",
+    "workTitle": "Choose the next improvement",
+    "workBody": "{count} evidence-backed work items are open.",
+    "noWorkBody": "No work item is open. Review new runs when they arrive.",
+    "outcomesTitle": "Check later outcomes",
+    "outcomesBody": "Completed work is compared with compatible later runs.",
+    "loading": "Checking the latest workspace data…"
+  },
   "searchBoard": {
     "title": "AI Search Overview",
     "subtitle": "Your brand's performance across AI search platforms",
@@ -54,21 +73,21 @@
     "generic": "Sample read for {brand}: visibility {visibility}, share of voice {sov}, sentiment {sentiment}, position {position}, used as a source {source}, win rate {winRate}."
   },
   "metric": {
-    "visibility": "Visibility",
-    "sov": "SoV",
+    "visibility": "Mention rate",
+    "sov": "Share of voice",
     "sentiment": "Sentiment",
     "position": "Position",
-    "source": "Used as a source",
-    "winRate": "Win rate"
+    "source": "Owned-source rate",
+    "winRate": "First-choice rate"
   },
   "metricInfo": "About {metric}",
   "metricHelp": {
-    "visibility": "Share of tracked AI answers that mention this brand.",
-    "sov": "This brand's mentions divided by every brand mention in those answers.",
+    "visibility": "Share of saved AI answers that mention this brand.",
+    "sov": "This brand's mentions divided by all tracked-brand mentions in the same answers.",
     "sentiment": "Average tone when AI talks about the brand. 50 is neutral, higher is warmer.",
     "position": "Average place in the list when the brand is named. 1 is the top spot.",
-    "source": "Share of answers that cite this brand's own website.",
-    "winRate": "Share of answers where this brand ranks ahead of the others you track."
+    "source": "Share of saved answers that use or cite this brand's own website as a source.",
+    "winRate": "Share of answers where this brand is listed ahead of every other tracked brand."
   },
   "matrixTitle": "Performance matrix",
   "switchAxis": "Switch axis",
@@ -139,7 +158,7 @@
     "reference": "Reference",
     "institutional": "Institutional"
   },
-  "visibilityTitle": "Visibility",
+  "visibilityTitle": "Mention performance",
   "period": {
     "d": "D",
     "w": "W",
@@ -149,13 +168,30 @@
   "chartEmpty": "This chart needs at least two days of answers. Widen the date range, or run prompts for this domain.",
   "topBrands": "Top {count} brands",
   "colBrand": "Brand",
-  "impactTitle": "Own source impact",
+  "impactTitle": "Mention rate and owned-source rate",
   "chartHover": "Chart values for the selected day",
-  "planTitle": "Your plan",
-  "goToActions": "Go to Actions",
+  "planTitle": "Next improvements",
+  "goToActions": "Open improvement queue",
   "nothingOpen": "Nothing open",
+  "planOpen": "{count} open",
+  "planCompleteError": "This work item could not be completed. Try again.",
+  "planEvidence": "{count} evidence items",
+  "planChecks": "{affected}/{total} model checks affected",
+  "planInProgress": "In progress",
+  "priority": {
+    "critical": "Critical",
+    "high": "High",
+    "medium": "Medium",
+    "low": "Low"
+  },
+  "planEmpty": {
+    "read": "No site-reading issue is open. The automatic site check will add one when evidence supports it.",
+    "pages": "No owned-page improvement is open.",
+    "mentions": "No external-coverage improvement is open.",
+    "claims": "No inaccurate brand claim is open."
+  },
   "claimsClear": "No wrong claims are open. New ones will show up here when tracking finds them.",
-  "moreTasks": "{count} more fixes are in Actions.",
+  "moreTasks": "{count} more work items are in the improvement queue.",
   "plan": {
     "read": {
       "title": "Fix how AI reads your site",
@@ -189,7 +225,7 @@
     "reddit": "Reddit",
     "join": "Join the conversation"
   },
-  "chatsTitle": "Recent chats",
+  "chatsTitle": "Saved answers",
   "allBrands": "All brands",
   "noBrand": "No brand mentioned",
   "allFeatures": "All features",

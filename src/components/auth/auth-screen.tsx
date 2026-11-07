@@ -20,7 +20,7 @@ export async function AuthScreen({ locale, mode, start }: { locale: string; mode
   const missing = missingClerkKeys()
   const signInPath = localePath(locale, '/sign-in')
   const signUpPath = localePath(locale, '/sign-up')
-  const homePath = localePath(locale, '/home')
+  const homePath = localePath(locale, '/overview')
   const isSignIn = mode === 'sign-in'
 
   return (

@@ -7,6 +7,25 @@
   "mentionHint": "Elige una métrica para añadirla a la pregunta.",
   "sampleLabel": "Respuesta de ejemplo",
   "sampleNote": "Esta respuesta sale de los números de esta pantalla. No hay un modelo en vivo conectado.",
+  "decision": {
+    "eyebrow": "Resumen de decisión",
+    "yourBrand": "tu marca",
+    "title": "Qué significan las últimas respuestas para {brand}",
+    "body": "Empieza por el resultado observado, revisa su evidencia, elige una mejora y comprueba ejecuciones posteriores sin afirmar que un solo cambio causó el resultado.",
+    "trackedQuestions": "Preguntas monitorizadas",
+    "trackedQuestionsHelp": "Preguntas programadas en los modelos de IA seleccionados.",
+    "answersTitle": "Revisar respuestas guardadas",
+    "answersBody": "Hay {count} respuestas disponibles en este periodo.",
+    "missesTitle": "Revisar respuestas perdidas",
+    "missesBody": "{count} respuestas nombraron otra marca y omitieron la tuya.",
+    "noMissesBody": "Ninguna respuesta de este periodo omitió tu marca.",
+    "workTitle": "Elegir la próxima mejora",
+    "workBody": "Hay {count} tareas abiertas respaldadas por evidencia.",
+    "noWorkBody": "No hay tareas abiertas. Revisa las nuevas ejecuciones cuando lleguen.",
+    "outcomesTitle": "Comprobar resultados posteriores",
+    "outcomesBody": "Las tareas completadas se comparan con ejecuciones posteriores compatibles.",
+    "loading": "Comprobando los últimos datos…"
+  },
   "searchBoard": {
     "title": "Resumen de búsqueda con IA",
     "subtitle": "El rendimiento de tu marca en las plataformas de búsqueda con IA",
@@ -54,12 +73,12 @@
     "generic": "Lectura de ejemplo para {brand}: visibilidad {visibility}, cuota de voz {sov}, sentimiento {sentiment}, posición {position}, usado como fuente {source}, tasa de victoria {winRate}."
   },
   "metric": {
-    "visibility": "Visibilidad",
-    "sov": "CdV",
+    "visibility": "Tasa de mención",
+    "sov": "Cuota de voz",
     "sentiment": "Sentimiento",
     "position": "Posición",
-    "source": "Usado como fuente",
-    "winRate": "Tasa de victoria"
+    "source": "Tasa de fuente propia",
+    "winRate": "Tasa de primera elección"
   },
   "metricInfo": "Sobre {metric}",
   "metricHelp": {
@@ -139,7 +158,7 @@
     "reference": "Referencia",
     "institutional": "Institucional"
   },
-  "visibilityTitle": "Visibilidad",
+  "visibilityTitle": "Rendimiento de menciones",
   "period": {
     "d": "D",
     "w": "S",
@@ -149,11 +168,23 @@
   "chartEmpty": "Este gráfico necesita al menos dos días de respuestas. Amplía el periodo, o ejecuta prompts para este dominio.",
   "topBrands": "{count} marcas principales",
   "colBrand": "Marca",
-  "impactTitle": "Impacto de tu fuente",
+  "impactTitle": "Tasa de mención y de fuente propia",
   "chartHover": "Valores del día elegido",
-  "planTitle": "Tu plan",
-  "goToActions": "Ir a Acciones",
+  "planTitle": "Próximas mejoras",
+  "goToActions": "Abrir la cola de mejoras",
   "nothingOpen": "Nada abierto",
+  "planOpen": "{count} abiertas",
+  "planCompleteError": "No se pudo completar esta tarea. Inténtalo de nuevo.",
+  "planEvidence": "{count} elementos de evidencia",
+  "planChecks": "{affected}/{total} comprobaciones afectadas",
+  "planInProgress": "En curso",
+  "priority": { "critical": "Crítica", "high": "Alta", "medium": "Media", "low": "Baja" },
+  "planEmpty": {
+    "read": "No hay problemas de lectura del sitio abiertos. La revisión automática añadirá uno cuando la evidencia lo justifique.",
+    "pages": "No hay mejoras de páginas propias abiertas.",
+    "mentions": "No hay mejoras de cobertura externa abiertas.",
+    "claims": "No hay afirmaciones incorrectas sobre la marca abiertas."
+  },
   "claimsClear": "No hay afirmaciones incorrectas abiertas. Las nuevas aparecerán aquí.",
   "moreTasks": "{count} correcciones más están en Acciones.",
   "plan": {
@@ -189,7 +220,7 @@
     "reddit": "Reddit",
     "join": "Unirse"
   },
-  "chatsTitle": "Chats recientes",
+  "chatsTitle": "Respuestas guardadas",
   "allBrands": "Todas las marcas",
   "noBrand": "Ninguna marca mencionada",
   "allFeatures": "Todas las funciones",

@@ -7,6 +7,25 @@
   "mentionHint": "Choisissez un indicateur à ajouter à la question.",
   "sampleLabel": "Réponse d'exemple",
   "sampleNote": "Cette réponse reprend les chiffres de cet écran. Aucun modèle en direct n'est branché.",
+  "decision": {
+    "eyebrow": "Brief décisionnel",
+    "yourBrand": "votre marque",
+    "title": "Ce que les dernières réponses signifient pour {brand}",
+    "body": "Partez du résultat observé, vérifiez ses preuves, choisissez une amélioration, puis contrôlez les exécutions suivantes sans prétendre qu’un seul changement a causé le résultat.",
+    "trackedQuestions": "Questions suivies",
+    "trackedQuestionsHelp": "Questions actuellement planifiées sur les modèles IA sélectionnés.",
+    "answersTitle": "Examiner les réponses enregistrées",
+    "answersBody": "{count} réponses sont disponibles pour cette période.",
+    "missesTitle": "Examiner les réponses manquées",
+    "missesBody": "{count} réponses ont cité une autre marque sans citer la vôtre.",
+    "noMissesBody": "Aucune réponse de cette période n’a omis votre marque.",
+    "workTitle": "Choisir la prochaine amélioration",
+    "workBody": "{count} tâches fondées sur des preuves sont ouvertes.",
+    "noWorkBody": "Aucune tâche ouverte. Vérifiez les nouvelles exécutions à leur arrivée.",
+    "outcomesTitle": "Contrôler les résultats suivants",
+    "outcomesBody": "Les tâches terminées sont comparées aux exécutions compatibles suivantes.",
+    "loading": "Vérification des dernières données…"
+  },
   "searchBoard": {
     "title": "Aperçu de la recherche IA",
     "subtitle": "Les résultats de votre marque sur les plateformes de recherche IA",
@@ -54,12 +73,12 @@
     "generic": "Lecture d'exemple pour {brand} : visibilité {visibility}, part de voix {sov}, sentiment {sentiment}, position {position}, utilisé comme source {source}, taux de victoire {winRate}."
   },
   "metric": {
-    "visibility": "Visibilité",
-    "sov": "PdV",
+    "visibility": "Taux de mention",
+    "sov": "Part de voix",
     "sentiment": "Sentiment",
     "position": "Position",
-    "source": "Utilisé comme source",
-    "winRate": "Taux de victoire"
+    "source": "Taux de source propriétaire",
+    "winRate": "Taux de premier choix"
   },
   "metricInfo": "À propos de {metric}",
   "metricHelp": {
@@ -139,7 +158,7 @@
     "reference": "Référence",
     "institutional": "Institution"
   },
-  "visibilityTitle": "Visibilité",
+  "visibilityTitle": "Performance des mentions",
   "period": {
     "d": "J",
     "w": "S",
@@ -149,11 +168,23 @@
   "chartEmpty": "Ce graphique a besoin d’au moins deux jours de réponses. Élargissez la période, ou lancez des prompts pour ce domaine.",
   "topBrands": "{count} premières marques",
   "colBrand": "Marque",
-  "impactTitle": "Impact de votre source",
+  "impactTitle": "Taux de mention et de source propriétaire",
   "chartHover": "Valeurs du jour choisi",
-  "planTitle": "Votre plan",
-  "goToActions": "Voir les actions",
+  "planTitle": "Prochaines améliorations",
+  "goToActions": "Ouvrir la file d’amélioration",
   "nothingOpen": "Rien d'ouvert",
+  "planOpen": "{count} ouvertes",
+  "planCompleteError": "Cette tâche n’a pas pu être terminée. Réessayez.",
+  "planEvidence": "{count} preuves",
+  "planChecks": "{affected}/{total} contrôles concernés",
+  "planInProgress": "En cours",
+  "priority": { "critical": "Critique", "high": "Haute", "medium": "Moyenne", "low": "Faible" },
+  "planEmpty": {
+    "read": "Aucun problème de lecture du site n’est ouvert. Le contrôle automatique en ajoutera un si les preuves le justifient.",
+    "pages": "Aucune amélioration de page propriétaire n’est ouverte.",
+    "mentions": "Aucune amélioration de couverture externe n’est ouverte.",
+    "claims": "Aucune affirmation inexacte sur la marque n’est ouverte."
+  },
   "claimsClear": "Aucune affirmation erronée n'est ouverte. Les nouvelles apparaîtront ici.",
   "moreTasks": "{count} autres corrections sont dans Actions.",
   "plan": {
@@ -189,7 +220,7 @@
     "reddit": "Reddit",
     "join": "Rejoindre"
   },
-  "chatsTitle": "Conversations récentes",
+  "chatsTitle": "Réponses enregistrées",
   "allBrands": "Toutes les marques",
   "noBrand": "Aucune marque citée",
   "allFeatures": "Toutes les fonctions",

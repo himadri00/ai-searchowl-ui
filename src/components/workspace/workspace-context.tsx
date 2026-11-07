@@ -85,8 +85,6 @@ type WorkspaceState = {
   range: RangeKey
   agent: boolean
   hidden: WidgetId[]
-  checklistHidden: boolean
-  steps: string[]
   filters: Filters
   matrixMetric: MetricKey
   matrixX: DimensionKey
@@ -97,8 +95,6 @@ type WorkspaceState = {
   setAgent: (agent: boolean) => void
   toggleWidget: (id: WidgetId) => void
   resetView: () => void
-  setChecklistHidden: (hidden: boolean) => void
-  completeStep: (id: string) => void
   setFilters: (filters: Filters | ((current: Filters) => Filters)) => void
   setMatrixMetric: (metric: MetricKey) => void
   setMatrixX: (dimension: DimensionKey) => void
@@ -149,8 +145,6 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
   const [range, setRange] = useState<RangeKey>('all')
   const [agent, setAgent] = useState(false)
   const [hidden, setHidden] = useState<WidgetId[]>([])
-  const [checklistHidden, setChecklistHidden] = useState(false)
-  const [steps, setSteps] = useState<string[]>(['workspace'])
   const [filters, setFilters] = useState<Filters>(defaultFilters)
   const [matrixMetric, setMatrixMetric] = useState<MetricKey>('winRate')
   const [matrixX, setMatrixX] = useState<DimensionKey>('topics')
@@ -170,8 +164,6 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
         if (typeof parsed.brandId === 'string') setBrandIdState(parsed.brandId)
         if (typeof (parsed as { workspaceId?: unknown }).workspaceId === 'string') setWorkspaceIdState((parsed as { workspaceId: string }).workspaceId)
         if (Array.isArray(parsed.hidden)) setHidden(parsed.hidden.filter((id): id is WidgetId => widgetIds.includes(id as WidgetId)))
-        if (typeof parsed.checklistHidden === 'boolean') setChecklistHidden(parsed.checklistHidden)
-        if (Array.isArray(parsed.steps)) setSteps(parsed.steps.filter((step) => typeof step === 'string'))
       } catch {
         window.localStorage.removeItem(storageKey)
       }
@@ -183,9 +175,9 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
     if (!ready) return
     window.localStorage.setItem(
       storageKey,
-      JSON.stringify({ mode, brandId, workspaceId, hidden, checklistHidden, steps }),
+      JSON.stringify({ mode, brandId, workspaceId, hidden }),
     )
-  }, [ready, mode, brandId, workspaceId, hidden, checklistHidden, steps])
+  }, [ready, mode, brandId, workspaceId, hidden])
 
   // The signed-in user's workspaces. Pick the last used one (or the first),
   // save the pick for the /api/v2 proxy, then load that workspace's data.
@@ -318,8 +310,6 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
       range,
       agent,
       hidden,
-      checklistHidden,
-      steps,
       filters,
       matrixMetric,
       matrixX,
@@ -385,8 +375,6 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
       toggleWidget: (id) => setHidden((current) => (current.includes(id) ? current.filter((item) => item !== id) : [...current, id])),
       resetView: () => {
         setHidden([])
-        setChecklistHidden(false)
-        setSteps(['workspace'])
         setFilters(defaultFilters)
         setMatrixMetric('winRate')
         setMatrixX('topics')
@@ -396,8 +384,6 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
         setModeState('agency')
         setBrandIdState(workspaceBrands[0]?.id ?? '')
       },
-      setChecklistHidden,
-      completeStep: (id) => setSteps((current) => (current.includes(id) ? current : [...current, id])),
       setFilters,
       setMatrixMetric,
       setMatrixX,
@@ -408,7 +394,7 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
       apiMessage,
       apiLoading,
     }
-  }, [mode, safeBrandId, range, agent, hidden, checklistHidden, steps, filters, matrixMetric, matrixX, matrixY, brand, workspaceBrands, workspaces, workspaceId, workspaceLimit, workspaceUsed, canCreateWorkspace, selection, apiMessage, apiLoading])
+  }, [mode, safeBrandId, range, agent, hidden, filters, matrixMetric, matrixX, matrixY, brand, workspaceBrands, workspaces, workspaceId, workspaceLimit, workspaceUsed, canCreateWorkspace, selection, apiMessage, apiLoading])
 
   return <WorkspaceContext.Provider value={value}>{children}</WorkspaceContext.Provider>
 }

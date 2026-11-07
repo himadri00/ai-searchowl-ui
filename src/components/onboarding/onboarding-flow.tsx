@@ -1429,7 +1429,7 @@ function DoneStep({
       </p>
       <div className="mt-6 flex gap-2">
         {preview ? <SecondaryButton onClick={onStartOver}>{t('doneStartOver')}</SecondaryButton> : null}
-        <PrimaryButton onClick={() => onOpen(result && !preview ? '/prompts' : '/home')}>
+        <PrimaryButton onClick={() => onOpen(result && !preview ? '/prompts' : '/overview')}>
           {result && !preview ? t('doneOpenPrompts') : t('doneOpenOverview')}
           <ArrowRight className="h-3.5 w-3.5" />
         </PrimaryButton>

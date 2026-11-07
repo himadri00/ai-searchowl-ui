@@ -18,7 +18,7 @@ export function ComingSoon() {
       <p className="mt-3 text-[15px] leading-6 text-zinc-600">
         {known ? t('comingBody', { screen: t(known.key) }) : t('unknownBody')}
       </p>
-      <Link href="/home" className="mt-6 rounded-lg bg-nuw-button px-4 py-2 text-sm text-white hover:bg-nuw-buttonHover">
+      <Link href="/overview" className="mt-6 rounded-lg bg-nuw-button px-4 py-2 text-sm text-white hover:bg-nuw-buttonHover">
         {t('comingAction')}
       </Link>
     </div>

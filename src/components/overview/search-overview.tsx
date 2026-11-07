@@ -187,6 +187,75 @@ export function SearchOverview() {
   )
 }
 
+export function ShareAndPrompts() {
+  const t = useTranslations('overview.page')
+  const locale = useLocale()
+  const brand = useBrand()
+  const { range, apiLoading } = useWorkspace()
+  const prompts = useV2<{ total: number; prompts: PromptItem[] }>('prompts', { limit: 100, offset: 0, status: 'active' })
+  const chats = useV2<{ total: number; chats: ChatRecord[] }>('prompt-runs/chats', {
+    limit: 100,
+    timezone: browserTimeZone(),
+    ...rangeQuery(range),
+  })
+  const percent = (value: number) => formatPercent(value, locale, value % 1 === 0 ? 0 : 1)
+  const count = (value: number) => formatNumber(value, locale, 0)
+  const shares = useMemo(() => shareSlices(brand), [brand])
+  const allShares = useMemo(() => allShareSlices(brand), [brand])
+  const topPrompts = useMemo(
+    () => rankPrompts(prompts.data?.prompts ?? [], chats.data?.chats ?? []),
+    [prompts.data, chats.data],
+  )
+
+  return (
+    <div className="grid gap-3 xl:grid-cols-2 [&>*]:min-w-0">
+      <ShareCard loading={apiLoading} slices={shares} all={allShares} center={brand.metrics.sov.value} centerLabel={brand.name} />
+      <article className="rounded-lg border border-nuw-line bg-white p-4 shadow-sm">
+        <div className="flex items-center justify-between gap-3">
+          <h3 className="text-[15px] font-semibold text-zinc-950">{t('searchBoard.promptsTitle')}</h3>
+          <Link href="/prompts" className="text-[13px] font-medium text-[#F05A0A] hover:underline">
+            {t('searchBoard.viewAll')}
+          </Link>
+        </div>
+        {topPrompts.length === 0 ? (
+          prompts.error ? null : <p className="mt-4 text-[13px] leading-5 text-zinc-500">{prompts.loading ? '...' : t('searchBoard.noPrompts')}</p>
+        ) : (
+          <div className="mt-3 min-w-0 overflow-x-auto">
+            <table className="w-full text-left text-[13px]">
+              <thead>
+                <tr className="text-[12px] text-zinc-400">
+                  <th className="pb-2 font-medium">{t('searchBoard.colPrompt')}</th>
+                  <th className="pb-2 font-medium">{t('searchBoard.colRank')}</th>
+                  <th className="pb-2 font-medium">{t('searchBoard.colVisibility')}</th>
+                  <th className="pb-2 text-right font-medium">{t('searchBoard.colCitations')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {topPrompts.map((row) => (
+                  <tr key={row.id} className="border-t border-nuw-line">
+                    <td className="max-w-[12rem] py-3 pr-3 text-zinc-800 sm:max-w-none">{row.text}</td>
+                    <td className="py-3 pr-3">
+                      {row.rank == null ? (
+                        <span className="text-[12px] text-zinc-400">{t('searchBoard.notRanked')}</span>
+                      ) : (
+                        <span className="inline-flex rounded-md bg-[#FFF3E8] px-1.5 py-0.5 text-[12px] font-semibold text-[#F05A0A]">
+                          #{formatNumber(row.rank, locale, row.rank % 1 === 0 ? 0 : 1)}
+                        </span>
+                      )}
+                    </td>
+                    <td className="py-3 pr-3 text-zinc-700">{row.visibility == null ? t('searchBoard.noScore') : percent(row.visibility)}</td>
+                    <td className="py-3 text-right text-zinc-700">{count(row.citations)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </article>
+    </div>
+  )
+}
+
 function TrendCard({ points, loading }: { points: { date: string; value: number }[]; loading: boolean }) {
   const t = useTranslations('overview.page')
   const locale = useLocale()

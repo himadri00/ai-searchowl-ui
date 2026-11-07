@@ -21,7 +21,7 @@ type RangeId = (typeof ranges)[number]
 const compares = ['prev', 'month', 'year'] as const
 type CompareId = (typeof compares)[number]
 const periods = ['d', 'w', 'm'] as const
-const heroMetrics: MetricKey[] = ['visibility', 'sentiment', 'position', 'winRate', 'sov']
+const heroMetrics: MetricKey[] = ['visibility', 'sov', 'source', 'sentiment', 'position', 'winRate']
 const chartMetrics: MetricKey[] = ['visibility', 'sentiment', 'position', 'sov', 'winRate']
 const monthStartPad = 3
 
@@ -30,6 +30,7 @@ export function InsightsScreen() {
   const overview = useTranslations('overview.page')
   const locale = useLocale()
   const brand = useBrand()
+  const hasBrandData = Boolean(brand.id || brand.name.trim() || brand.domain.trim())
   const { tags: promptTags, topics: promptTopics } = usePrompts()
   const { push } = useToast()
   const [range, setRange] = useState<RangeId>('all')
@@ -65,7 +66,6 @@ export function InsightsScreen() {
 
   const filterCount = [models, tags, topics].filter((list) => list !== null).length
   const dirty = range !== 'all' || filterCount > 0 || brandIds !== null
-  const rank = brand.metrics.position.value <= 1.2 ? 1 : Math.max(1, Math.round(brand.metrics.position.value))
   const points = brand.series.filter((point) => point?.date)
   const dates = points.map((point) => point.date)
   const weekly = dates.map((_, index) => index).filter((index) => index % 2 === 0)
@@ -196,16 +196,12 @@ export function InsightsScreen() {
       }} />
 
       <section>
-        <h2 className="text-[22px] font-semibold tracking-tight">{t('headline', { rank })}</h2>
+        <h2 className="text-[22px] font-semibold tracking-tight">{t('headline')}</h2>
         <p className="mt-1 text-[13px] text-zinc-500">{t('headlineBody')}</p>
         <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-6">
           {heroMetrics.map((item) => (
-            <MetricStat key={item} metric={item} locale={locale} brand={brand} />
+            <MetricStat key={item} metric={item} locale={locale} brand={brand} ready={hasBrandData} />
           ))}
-          <ModelStat label={t('strongest')} value={overview('models.chatgpt')} help={t('strongHelp')} onLearn={() => push({ title: t('learnTitle'), body: t('learnBody') })} />
-        </div>
-        <div className="mt-3">
-          <ModelStat label={t('weakest')} value={overview('models.aioverview')} help={t('weakHelp')} onLearn={() => push({ title: t('learnTitle'), body: t('learnBody') })} />
         </div>
       </section>
 
@@ -254,7 +250,7 @@ export function InsightsScreen() {
   )
 }
 
-function MetricStat({ metric, locale, brand }: { metric: MetricKey; locale: string; brand: Brand }) {
+function MetricStat({ metric, locale, brand, ready }: { metric: MetricKey; locale: string; brand: Brand; ready: boolean }) {
   const t = useTranslations('insights.page')
   const overview = useTranslations('overview.page')
   const { push } = useToast()
@@ -265,22 +261,12 @@ function MetricStat({ metric, locale, brand }: { metric: MetricKey; locale: stri
       <p className="mt-1 flex items-baseline gap-2">
         <span className="inline-flex items-center gap-1.5 text-[20px] font-semibold tracking-tight">
           {metric === 'sentiment' ? <span className="h-2 w-2 rounded-full bg-[#0f9f6e]" /> : null}
-          {formatMetricValue(metric, item.value, locale)}
+          {ready ? formatMetricValue(metric, item.value, locale) : t('notAvailable')}
         </span>
         {item.delta !== undefined ? (
           <span className={cn('text-[12px] font-medium', item.tone === 'bad' ? 'text-[#e11d48]' : 'text-[#0f9f6e]')}>{formatDelta(metric, item.delta, locale)}</span>
         ) : null}
       </p>
-    </div>
-  )
-}
-
-function ModelStat({ label, value, help, onLearn }: { label: string; value: string; help: string; onLearn: () => void }) {
-  const t = useTranslations('insights.page')
-  return (
-    <div>
-      <HelpLabel label={label} help={help} learn={t('learnMore')} onLearn={onLearn} />
-      <p className="mt-1 text-[15px] font-medium">{value}</p>
     </div>
   )
 }

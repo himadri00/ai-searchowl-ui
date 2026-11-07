@@ -26,7 +26,7 @@ export function ActionPlan() {
       await v2Send<ActionItem>('PATCH', `actions/${encodeURIComponent(action.id)}`, { status: 'done' })
       plan.reload()
     } catch (error) {
-      setUpdateError(errorText(error, 'This action could not be completed. Try again.'))
+      setUpdateError(errorText(error, t('planCompleteError')))
     } finally {
       setUpdating(null)
     }
@@ -50,10 +50,10 @@ export function ActionPlan() {
               <div className="mb-2 flex items-center gap-2">
                 <p className="text-[13px] font-medium">{t(`plan.${group.id}.title`)}</p>
                 <span className="text-[12px] text-zinc-400">
-                  {group.total === 0 ? t('nothingOpen') : `${group.total} open`}
+                  {group.total === 0 ? t('nothingOpen') : t('planOpen', { count: group.total })}
                 </span>
               </div>
-              {group.tasks.length === 0 ? <p className="text-[13px] leading-5 text-zinc-500">{emptyGroupMessage(group.id)}</p> : null}
+              {group.tasks.length === 0 ? <p className="text-[13px] leading-5 text-zinc-500">{t(`planEmpty.${group.id}`)}</p> : null}
               <ul className="space-y-2">
                 {group.tasks.map((task) => {
                   return (
@@ -71,14 +71,14 @@ export function ActionPlan() {
                           <span className="block text-[13px] font-medium text-zinc-800">{task.title}</span>
                           <span className="mt-0.5 block text-[12px] leading-5 text-zinc-500">{task.recommendedChange}</span>
                           <span className="mt-1 flex flex-wrap gap-1">
-                            <span className={cn('rounded-md px-1.5 py-0.5 text-[11px]', priorityClass(task.priority))}>{task.priority}</span>
-                            <span className="rounded-md bg-zinc-100 px-1.5 py-0.5 text-[11px] text-zinc-600">{task.evidence.length} evidence</span>
+                            <span className={cn('rounded-md px-1.5 py-0.5 text-[11px]', priorityClass(task.priority))}>{t(`priority.${task.priority}`)}</span>
+                            <span className="rounded-md bg-zinc-100 px-1.5 py-0.5 text-[11px] text-zinc-600">{t('planEvidence', { count: task.evidence.length })}</span>
                             {task.impact ? (
                               <span className="rounded-md bg-orange-50 px-1.5 py-0.5 text-[11px] text-orange-700">
-                                {task.impact.affectedResults}/{task.impact.totalResults} model checks affected
+                                {t('planChecks', { affected: task.impact.affectedResults, total: task.impact.totalResults })}
                               </span>
                             ) : null}
-                            {task.status === 'in_progress' ? <span className="rounded-md bg-amber-50 px-1.5 py-0.5 text-[11px] text-amber-700">In progress</span> : null}
+                            {task.status === 'in_progress' ? <span className="rounded-md bg-amber-50 px-1.5 py-0.5 text-[11px] text-amber-700">{t('planInProgress')}</span> : null}
                           </span>
                         </span>
                       </button>
@@ -102,11 +102,4 @@ function priorityClass(priority: ActionItem['priority']) {
   if (priority === 'high') return 'bg-orange-100 text-orange-700'
   if (priority === 'medium') return 'bg-amber-50 text-amber-700'
   return 'bg-zinc-100 text-zinc-600'
-}
-
-function emptyGroupMessage(group: ActionPlanGroup['id']) {
-  if (group === 'read') return 'No site-reading issues are open. The automatic audit will add them here.'
-  if (group === 'pages') return 'No owned-page improvements are open.'
-  if (group === 'mentions') return 'No external-coverage recommendations are open.'
-  return 'No incorrect brand claims are open.'
 }

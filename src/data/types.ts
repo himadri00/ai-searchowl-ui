@@ -214,41 +214,38 @@ export const dimensionMembers: Record<Exclude<DimensionKey, 'brands'>, string[]>
   countries: ['us', 'uk', 'de', 'fr', 'in'],
 }
 
-export const widgetIds = ['hero', 'metrics', 'visibility', 'impact', 'plan', 'matrix', 'domains', 'chats'] as const
+export const widgetIds = ['hero', 'visibility', 'impact', 'plan', 'matrix', 'domains', 'chats'] as const
 export type WidgetId = (typeof widgetIds)[number]
 
 export type NavChild = { href: string; key: string; icon: string; dot?: boolean }
 export type NavItem = { href?: string; key: string; icon: string; children?: NavChild[] }
 
 export const navigation: NavItem[] = [
-  { href: '/home', key: 'navHome', icon: 'home' },
-  { href: '/home', key: 'overview', icon: 'custom' },
-  { href: '/actions', key: 'navActions', icon: 'actions' },
-  { href: '/website', key: 'navWebsite', icon: 'website' },
+  { href: '/overview', key: 'navHome', icon: 'home' },
   {
-    key: 'navBrand',
+    key: 'navImprove',
+    icon: 'actions',
+    children: [
+      { href: '/prompts/gap', key: 'navGap', icon: 'gap' },
+      { href: '/actions', key: 'navActions', icon: 'actions' },
+    ],
+  },
+  {
+    key: 'navMonitor',
     icon: 'brand',
     children: [
       { href: '/brand/insights', key: 'navInsights', icon: 'insights' },
       { href: '/brand/perception', key: 'navPerception', icon: 'perception' },
-    ],
-  },
-  {
-    key: 'navPrompts',
-    icon: 'prompts',
-    children: [
       { href: '/prompts', key: 'navAllPrompts', icon: 'allPrompts' },
       { href: '/prompts/discovery', key: 'navDiscovery', icon: 'discovery', dot: true },
     ],
   },
   {
-    key: 'navSources',
+    key: 'navEvidence',
     icon: 'sources',
     children: [
-      { href: '/prompts/gap', key: 'navGap', icon: 'gap' },
       { href: '/prompts/domains', key: 'navPromptDomains', icon: 'promptDomains' },
       { href: '/prompts/urls', key: 'navUrls', icon: 'urls' },
     ],
   },
-  { href: '/settings', key: 'navSettings', icon: 'settings' },
 ]

@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import {
-  Calendar,
   ChevronDown,
   ChevronRight,
   ChartColumn,
@@ -12,7 +11,6 @@ import {
   Globe,
   Hexagon,
   Home,
-  LayoutGrid,
   Link2,
   ListChecks,
   MessageSquare,
@@ -20,7 +18,6 @@ import {
   Search,
   Settings,
   Smile,
-  X,
   type LucideIcon,
 } from 'lucide-react'
 import { navigation, type NavItem } from '@/data/types'
@@ -29,14 +26,12 @@ import { useWorkspace } from '@/components/workspace/workspace-context'
 import { BrandSwitcher } from '@/components/shell/brand-switcher'
 import { BrandMark } from '@/components/shell/brand-mark'
 import { useBrand } from '@/components/workspace/workspace-context'
-import { Menu, Modal, useToast } from '@/components/ui/overlay'
+import { Menu } from '@/components/ui/overlay'
 import { cn } from '@/lib/cn'
 
 const icons: Record<string, LucideIcon> = {
   home: Home,
-  custom: LayoutGrid,
   actions: ListChecks,
-  website: Globe,
   brand: Hexagon,
   insights: Eye,
   perception: Smile,
@@ -47,34 +42,21 @@ const icons: Record<string, LucideIcon> = {
   gap: ChartColumn,
   promptDomains: Globe,
   urls: Link2,
-  settings: Settings,
 }
 
 export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
   const t = useTranslations('shell')
   const pathname = usePathname()
   const brand = useBrand()
-  const { steps, completeStep, checklistHidden, setChecklistHidden, reveal, agent, setAgent } = useWorkspace()
-  const { push } = useToast()
+  const { reveal, agent, setAgent } = useWorkspace()
   const [query, setQuery] = useState('')
-  const [kickoff, setKickoff] = useState(false)
-  const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({ navBrand: true, navPrompts: true, navSources: true })
+  const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({ navImprove: true, navMonitor: true, navEvidence: true })
 
   const pages = navigation.flatMap<{ href?: string; key: string }>((item) => (item.children ? item.children : item.href ? [item] : []))
   const results = pages.filter((item) => t(item.key).toLowerCase().includes(query.trim().toLowerCase()))
 
-  const runStep = (id: string, target: string) => {
-    if (id === 'workspace') {
-      push({ title: t('checklistDone'), body: t('stepWorkspaceToast') })
-      return
-    }
-    completeStep(id)
-    reveal(target)
-    onNavigate?.()
-  }
-
   return (
-    <aside className="flex h-full w-[248px] shrink-0 flex-col border-r border-nuw-line bg-nuw-sidebar">
+    <aside className="flex h-full min-h-0 w-[248px] shrink-0 flex-col overflow-hidden border-r border-nuw-line bg-nuw-sidebar">
       <div className="flex items-center gap-1 px-3 pb-2 pt-3">
         <BrandSwitcher variant="sidebar" />
         <Menu
@@ -146,40 +128,20 @@ export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
         ))}
       </nav>
 
-      <div className="max-h-[42vh] shrink-0 overflow-auto px-3 pb-2">
-        {checklistHidden ? (
-          <button type="button" onClick={() => setChecklistHidden(false)} className="w-full rounded-lg px-2 py-2 text-left text-[13px] text-zinc-600 hover:bg-zinc-200/60">
-            {t('showChecklist')}
-          </button>
-        ) : (
-          <div className="rounded-lg border border-nuw-line bg-white p-3 shadow-card">
-            <div className="mb-2 flex items-center justify-between gap-2">
-              <p className="text-[12px] font-medium text-zinc-700">{t('startHere', { done: steps.length, total: 5 })}</p>
-              <button type="button" aria-label={t('hideChecklist')} onClick={() => setChecklistHidden(true)} className="text-zinc-400 hover:text-zinc-700">
-                <X className="h-3.5 w-3.5" />
-              </button>
-            </div>
-            <div className="mb-3 h-1 overflow-hidden rounded-full bg-zinc-200">
-              <div className="h-full rounded-full bg-nuw-primary" style={{ width: `${(steps.length / 5) * 100}%` }} />
-            </div>
-            <p className="mb-2 text-[13px] font-medium text-zinc-800">{t('firstWin')}</p>
-            <ul className="space-y-0.5">
-              <Step done={steps.includes('workspace')} label={t('checklistDone')} onClick={() => runStep('workspace', 'ask')} />
-              <Step done={steps.includes('stand')} label={t('checklistStand')} onClick={() => runStep('stand', 'metrics')} />
-              <Step done={steps.includes('response')} label={t('checklistResponse')} onClick={() => runStep('response', 'ask')} />
-              <Step done={steps.includes('answers')} label={t('checklistAnswers')} onClick={() => runStep('answers', 'domains')} />
-              <Step done={steps.includes('gap')} label={t('checklistGap')} onClick={() => runStep('gap', 'plan')} />
-            </ul>
-            <button
-              type="button"
-              onClick={() => setKickoff(true)}
-              className="mt-3 flex w-full items-center justify-center gap-2 rounded-lg border border-nuw-line py-1.5 text-[13px] hover:bg-zinc-50"
-            >
-              <Calendar className="h-3.5 w-3.5" />
-              {t('bookKickstart')}
-            </button>
-          </div>
-        )}
+      <div className="shrink-0 border-t border-nuw-line px-2 py-2">
+        <Link
+          href="/settings"
+          onClick={onNavigate}
+          className={cn(
+            'flex items-center gap-2 rounded-md px-2 py-1.5 text-[13px]',
+            pathname === '/settings'
+              ? 'bg-[#171411] font-semibold text-white hover:bg-[#171411] hover:text-white'
+              : 'text-[#302C29] hover:bg-[#F0EDE8]',
+          )}
+        >
+          <Settings className="h-4 w-4" />
+          <span>{t('navSettings')}</span>
+        </Link>
       </div>
 
       <div className="flex shrink-0 items-center gap-2 border-t border-nuw-line bg-nuw-sidebar px-4 py-3 text-[13px]">
@@ -187,16 +149,6 @@ export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
         <span className="truncate font-medium">{t('live', { brand: brand.name })}</span>
         <span className="ml-auto h-1.5 w-1.5 rounded-full bg-emerald-500" />
       </div>
-
-      <Modal open={kickoff} title={t('kickTitle')} onClose={() => setKickoff(false)}>
-        <div className="p-5">
-          <h2 className="text-base font-semibold">{t('kickTitle')}</h2>
-          <p className="mt-2 text-sm leading-6 text-zinc-600">{t('kickBody')}</p>
-          <button type="button" onClick={() => setKickoff(false)} className="mt-4 rounded-lg bg-nuw-button px-3 py-2 text-sm text-white hover:bg-nuw-buttonHover">
-            {t('kickAction')}
-          </button>
-        </div>
-      </Modal>
     </aside>
   )
 }
@@ -288,16 +240,3 @@ function NavLink({
   )
 }
 
-function Step({ done, label, onClick }: { done: boolean; label: string; onClick: () => void }) {
-  return (
-    <li>
-      <button type="button" onClick={onClick} className="flex w-full items-center gap-2 rounded-md px-1 py-1 text-left text-[13px] text-zinc-700 hover:bg-zinc-50">
-        <span className={cn('grid h-4 w-4 place-items-center rounded-full border', done ? 'border-emerald-500 bg-emerald-500 text-white' : 'border-zinc-300')}>
-          {done ? <span className="text-[10px]">✓</span> : null}
-        </span>
-        <span className={cn('flex-1', done && 'text-zinc-500')}>{label}</span>
-        {!done ? <ChevronRight className="h-3.5 w-3.5 text-zinc-300" /> : null}
-      </button>
-    </li>
-  )
-}

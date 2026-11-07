@@ -16,7 +16,6 @@ import { cn } from '@/lib/cn'
 
 const widgetLabel: Record<WidgetId, string> = {
   hero: 'widgetHero',
-  metrics: 'widgetMetrics',
   visibility: 'widgetVisibility',
   impact: 'widgetImpact',
   plan: 'widgetPlan',
@@ -38,7 +37,7 @@ export function TopBar({ onMenu }: { onMenu: () => void }) {
   const pathname = usePathname()
   const locale = useLocale()
   const { push } = useToast()
-  const { agent, setAgent, reveal, hidden, toggleWidget, resetView, checklistHidden, setChecklistHidden } = useWorkspace()
+  const { agent, setAgent, reveal, hidden, toggleWidget, resetView } = useWorkspace()
   const [copied, setCopied] = useState(false)
   const title = pageTitle(pathname, t)
 
@@ -51,13 +50,13 @@ export function TopBar({ onMenu }: { onMenu: () => void }) {
         <SquareChartGantt className="h-4 w-4 text-zinc-500" />
         {pathname === '/prompts/gap' ? (
           <h1 className="flex min-w-0 items-center gap-1 truncate text-[15px] font-extrabold tracking-[-0.025em]">
-            <span className="text-zinc-500">{t('navSources')}</span>
+            <span className="text-zinc-500">{t('navImprove')}</span>
             <ChevronRight className="h-3.5 w-3.5 shrink-0 text-zinc-300" />
             <span className="font-medium">{t('navGap')}</span>
           </h1>
         ) : pathname.startsWith('/prompts/urls') || pathname.startsWith('/prompts/domains') ? (
           <h1 className="flex min-w-0 items-center gap-1 truncate text-[15px] font-extrabold tracking-[-0.025em]">
-            <span className="text-zinc-500">{t('navSources')}</span>
+            <span className="text-zinc-500">{t('navEvidence')}</span>
             <ChevronRight className="h-3.5 w-3.5 shrink-0 text-zinc-300" />
             {pathname.startsWith('/prompts/domains') ? (
               pathname === '/prompts/domains' ? (
@@ -81,7 +80,7 @@ export function TopBar({ onMenu }: { onMenu: () => void }) {
           </h1>
         ) : pathname === '/brand/insights' || pathname === '/brand/perception' || pathname.startsWith('/prompts') ? (
           <h1 className="flex min-w-0 items-center gap-1 truncate text-[15px] font-extrabold tracking-[-0.025em]">
-            <span className="text-zinc-500">{pathname.startsWith('/prompts') ? t('navPrompts') : t('navBrand')}</span>
+            <span className="text-zinc-500">{t('navMonitor')}</span>
             <ChevronRight className="h-3.5 w-3.5 shrink-0 text-zinc-300" />
             <span className="font-medium">{promptCrumb(pathname, t) || (pathname === '/brand/insights' ? t('navInsights') : t('navPerception'))}</span>
           </h1>
@@ -128,13 +127,8 @@ export function TopBar({ onMenu }: { onMenu: () => void }) {
               </Link>
             ))}
           </div>
-          {checklistHidden ? (
-            <button type="button" onClick={() => setChecklistHidden(false)} className="mt-3 text-[13px] font-medium text-zinc-800 underline">
-              {t('showChecklist')}
-            </button>
-          ) : null}
         </Menu>
-        {pathname === '/home' ? (
+        {pathname === '/overview' ? (
           <>
             <Menu
               align="right"
@@ -209,7 +203,8 @@ function promptCrumb(pathname: string, t: (key: string) => string) {
 }
 
 function pageTitle(pathname: string, t: (key: string) => string) {
-  if (pathname === '/home') return t('overview')
+  if (pathname === '/overview') return t('overview')
+  if (pathname === '/settings') return t('navSettings')
   for (const item of navigation) {
     if (item.href === pathname) return t(item.key)
     for (const child of item.children ?? []) {

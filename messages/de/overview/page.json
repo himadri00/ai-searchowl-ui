@@ -7,6 +7,25 @@
   "mentionHint": "Wähl eine Kennzahl für deine Frage.",
   "sampleLabel": "Beispielantwort",
   "sampleNote": "Diese Antwort nutzt die Zahlen auf diesem Bildschirm. Kein Live-Modell ist verbunden.",
+  "decision": {
+    "eyebrow": "Entscheidungsübersicht",
+    "yourBrand": "deine Marke",
+    "title": "Was die neuesten Antworten für {brand} bedeuten",
+    "body": "Beginne mit dem beobachteten Ergebnis, prüfe die Belege, wähle eine Verbesserung und kontrolliere spätere Läufe, ohne eine einzelne Änderung als Ursache darzustellen.",
+    "trackedQuestions": "Beobachtete Fragen",
+    "trackedQuestionsHelp": "Fragen, die derzeit in den ausgewählten KI-Modellen geplant sind.",
+    "answersTitle": "Gespeicherte Antworten prüfen",
+    "answersBody": "{count} Antworten sind für diesen Zeitraum verfügbar.",
+    "missesTitle": "Verpasste Antworten prüfen",
+    "missesBody": "{count} Antworten nannten eine andere Marke und ließen deine aus.",
+    "noMissesBody": "Keine Antwort in diesem Zeitraum ließ deine Marke aus.",
+    "workTitle": "Nächste Verbesserung wählen",
+    "workBody": "{count} belegte Aufgaben sind offen.",
+    "noWorkBody": "Keine Aufgabe ist offen. Prüfe neue Läufe, sobald sie verfügbar sind.",
+    "outcomesTitle": "Spätere Ergebnisse prüfen",
+    "outcomesBody": "Abgeschlossene Aufgaben werden mit späteren vergleichbaren Läufen verglichen.",
+    "loading": "Neueste Workspace-Daten werden geprüft…"
+  },
   "searchBoard": {
     "title": "KI-Suche im Überblick",
     "subtitle": "So schneidet deine Marke auf KI-Suchplattformen ab",
@@ -54,12 +73,12 @@
     "generic": "Beispiel für {brand}: Sichtbarkeit {visibility}, Share of Voice {sov}, Stimmung {sentiment}, Position {position}, als Quelle genutzt {source}, Gewinnrate {winRate}."
   },
   "metric": {
-    "visibility": "Sichtbarkeit",
-    "sov": "SoV",
+    "visibility": "Erwähnungsrate",
+    "sov": "Share of Voice",
     "sentiment": "Stimmung",
     "position": "Position",
-    "source": "Als Quelle genutzt",
-    "winRate": "Gewinnrate"
+    "source": "Rate eigener Quellen",
+    "winRate": "Rate erster Wahl"
   },
   "metricInfo": "Zu {metric}",
   "metricHelp": {
@@ -139,7 +158,7 @@
     "reference": "Referenz",
     "institutional": "Institution"
   },
-  "visibilityTitle": "Sichtbarkeit",
+  "visibilityTitle": "Erwähnungsleistung",
   "period": {
     "d": "T",
     "w": "W",
@@ -149,11 +168,23 @@
   "chartEmpty": "Dieses Diagramm braucht mindestens zwei Tage mit Antworten. Wählen Sie einen längeren Zeitraum, oder starten Sie Prompts für diese Domain.",
   "topBrands": "Top {count} Marken",
   "colBrand": "Marke",
-  "impactTitle": "Eigene Quelle",
+  "impactTitle": "Erwähnungsrate und Rate eigener Quellen",
   "chartHover": "Werte für den gewählten Tag",
-  "planTitle": "Dein Plan",
-  "goToActions": "Zu den Aktionen",
+  "planTitle": "Nächste Verbesserungen",
+  "goToActions": "Verbesserungswarteschlange öffnen",
   "nothingOpen": "Nichts offen",
+  "planOpen": "{count} offen",
+  "planCompleteError": "Diese Aufgabe konnte nicht abgeschlossen werden. Versuche es erneut.",
+  "planEvidence": "{count} Belege",
+  "planChecks": "{affected}/{total} Prüfungen betroffen",
+  "planInProgress": "In Arbeit",
+  "priority": { "critical": "Kritisch", "high": "Hoch", "medium": "Mittel", "low": "Niedrig" },
+  "planEmpty": {
+    "read": "Kein Problem mit der Lesbarkeit der Website ist offen. Die automatische Prüfung fügt eines hinzu, wenn Belege vorliegen.",
+    "pages": "Keine Verbesserung eigener Seiten ist offen.",
+    "mentions": "Keine Verbesserung externer Präsenz ist offen.",
+    "claims": "Keine falsche Markenaussage ist offen."
+  },
   "claimsClear": "Keine falschen Behauptungen sind offen. Neue erscheinen hier, sobald das Tracking sie findet.",
   "moreTasks": "{count} weitere Korrekturen liegen in Aktionen.",
   "plan": {
@@ -189,7 +220,7 @@
     "reddit": "Reddit",
     "join": "Mitreden"
   },
-  "chatsTitle": "Letzte Chats",
+  "chatsTitle": "Gespeicherte Antworten",
   "allBrands": "Alle Marken",
   "noBrand": "Keine Marke genannt",
   "allFeatures": "Alle Funktionen",

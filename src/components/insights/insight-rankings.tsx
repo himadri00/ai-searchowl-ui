@@ -80,18 +80,7 @@ export function InsightRankings({
               return (
                 <tr key={id} className="border-t border-nuw-line">
                   <td className="px-2 py-2">
-                    <span className="group/rank relative inline-flex cursor-default text-zinc-700">
-                      {labelFor(dimension, id)}
-                      <span className="pointer-events-none absolute left-0 top-full z-20 mt-1 hidden w-52 rounded-lg bg-zinc-950 p-3 text-[12px] text-white group-hover/rank:block">
-                        <span className="block font-medium">{labelFor(dimension, id)}</span>
-                        {rankMetrics.map((item) => (
-                          <span key={item} className="mt-1 flex items-center justify-between gap-3">
-                            <span className="text-zinc-300">{overview(`metric.${item}`)}</span>
-                            <span>{item === 'position' && brand.metrics[item].value === null ? 'N/A' : formatMetricValue(item, brand.metrics[item].value, locale)}</span>
-                          </span>
-                        ))}
-                      </span>
-                    </span>
+                    <span className="text-zinc-700">{labelFor(dimension, id)}</span>
                   </td>
                   {Array.from({ length: columns }, (_, index) => {
                     const item = order[index]
@@ -99,7 +88,11 @@ export function InsightRankings({
                     const you = item.id === brand.id
                     return (
                       <td key={item.id} className="px-1 py-2 text-center">
-                        <span className="inline-flex max-w-full items-center gap-1 rounded-full px-2 py-0.5 text-[12px] font-medium" style={pillStyle(item.color, you)}>
+                        <span
+                          className="inline-flex max-w-full items-center gap-1 rounded-full px-2 py-0.5 text-[12px] font-medium"
+                          style={pillStyle(item.color, you)}
+                          title={`${item.name} · ${overview(`metric.${metric}`)}: ${competitorMetric(item, metric, locale)}`}
+                        >
                           <span className="max-w-[88px] truncate">{item.name}</span>
                           {you ? <span className="rounded-full bg-white/25 px-1.5 text-[10px] font-semibold text-white">{t('you')}</span> : null}
                         </span>
@@ -144,6 +137,13 @@ function Pick({ active, onPick, children }: { active: boolean; onPick: () => voi
 function pillStyle(color: string, you: boolean) {
   if (you) return { backgroundColor: color, color: '#ffffff' }
   return { backgroundColor: hexAlpha(color, 0.14), color }
+}
+
+function competitorMetric(competitor: Competitor, metric: MetricKey, locale: string) {
+  if (metric === 'winRate' || metric === 'source') return 'N/A'
+  const value = competitor[metric]
+  if (value == null) return 'N/A'
+  return formatMetricValue(metric, value, locale)
 }
 
 function hexAlpha(hex: string, alpha: number) {

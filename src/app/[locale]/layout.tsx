@@ -63,8 +63,8 @@ export default async function LocaleLayout({
             appearance={clerkAppearance}
             signInUrl={localePath(locale, '/sign-in')}
             signUpUrl={localePath(locale, '/sign-up')}
-            signInFallbackRedirectUrl={localePath(locale, '/home')}
-            signUpFallbackRedirectUrl={localePath(locale, '/home')}
+            signInFallbackRedirectUrl={localePath(locale, '/overview')}
+            signUpFallbackRedirectUrl={localePath(locale, '/overview')}
             afterSignOutUrl={localePath(locale, '/sign-in')}
           >
             {app}

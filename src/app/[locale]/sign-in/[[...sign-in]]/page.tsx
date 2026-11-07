@@ -15,7 +15,7 @@ export default async function SignInPage({ params }: { params: Promise<{ locale:
   setRequestLocale(locale)
   if (clerkServerEnabled()) {
     const { userId } = await auth()
-    if (userId) redirect(localePath(locale, '/home'))
+    if (userId) redirect(localePath(locale, '/overview'))
   }
   return <AuthScreen locale={locale} mode="sign-in" start={!segments?.length} />
 }

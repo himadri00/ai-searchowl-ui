@@ -1,7 +1,8 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
-import { SearchOverview } from '@/components/overview/search-overview'
+import { DecisionBrief } from '@/components/overview/decision-brief'
+import { ShareAndPrompts } from '@/components/overview/search-overview'
 import { MetricStrip } from '@/components/overview/metric-strip'
 import { VisibilityPanel, SourceImpact } from '@/components/overview/visibility-panel'
 import { ActionPlan } from '@/components/overview/action-plan'
@@ -16,20 +17,20 @@ export function OverviewScreen() {
   const { hidden, agent } = useWorkspace()
   const brand = useBrand()
   const show = (id: string) => !hidden.includes(id as never) && (!agent || id === 'hero')
-  const any = ['metrics', 'visibility', 'impact', 'plan', 'matrix', 'domains', 'chats'].some((id) => show(id))
+  const any = ['visibility', 'impact', 'plan', 'matrix', 'domains', 'chats'].some((id) => show(id))
 
   return (
     <div className="pb-10">
-      {show('hero') || show('metrics') ? (
+      {show('hero') ? (
         <section className="space-y-4 px-4 pb-4 pt-6">
-          {show('hero') ? <SearchOverview /> : null}
-          {show('metrics') ? <MetricStrip /> : null}
+          {show('hero') ? <DecisionBrief /> : null}
+          {show('hero') ? <ShareAndPrompts /> : null}
         </section>
       ) : null}
       <div className="space-y-4 px-4">
+        {show('plan') ? <ActionPlan /> : null}
         {show('visibility') ? <VisibilityPanel /> : null}
         {show('impact') ? <SourceImpact /> : null}
-        {show('plan') ? <ActionPlan /> : null}
         {show('matrix') ? (
           <div className="rounded-lg border border-nuw-line bg-white px-4 py-3">
             <div className="flex flex-wrap items-center gap-3">
